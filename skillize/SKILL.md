@@ -1,0 +1,223 @@
+---
+name: skillize
+description: >
+  Crystallize a session's workflow into a reusable Claude Code skill.
+  Reconstructs what happened, extracts the repeatable pattern, drafts
+  SKILL.md with references, then optionally runs eval/optimize via
+  skill-creator. Use when: the user just completed a multi-step
+  workflow and wants to capture it as a skill for future reuse.
+  Trigger on: "turn this into a skill", "skillize this", "make a
+  skill from what we just did", "capture this workflow", "save this
+  as a skill", "I want to reuse this process", "freeze this into a
+  skill", /skillize. Also trigger when the user says "I keep doing
+  this same thing" or "we should automate this pattern" or asks to
+  package a session into something reusable. Do NOT trigger for
+  creating skills from scratch with no prior session work -- that
+  is skill-creator's job.
+---
+
+# /skillize -- Session to Skill
+
+A devlog captures *why* you made decisions. A skill captures *how* to
+repeat the workflow. Skillize extracts the repeatable pattern from a
+session and packages it as a Claude Code skill.
+
+The test: if someone invokes this skill six months from now on a
+similar problem, does it reproduce the quality of today's session
+without re-discovering the process?
+
+## When to skillize vs. when NOT to
+
+**Good candidates:**
+- Multi-step workflow that took 10+ minutes and would recur
+- Process where you discovered non-obvious tool sequences
+- Workflow with user corrections that became stable rules
+- Domain-specific knowledge that required research to find
+- Pattern where Claude kept going wrong until guided right
+- Recurring diagnostic workflows (incident triage, leak hunting)
+
+**Bad candidates:**
+- One-off investigation (use /reflect instead)
+- Simple task Claude handles well without guidance
+- Workflow that depends entirely on specific data or context
+- One-off debugging whose fix lives in code (not the process)
+- Process that changes every time (no stable pattern)
+
+## Process
+
+### Phase 1: Survey
+
+Reconstruct the session. Don't rely on memory -- check the evidence.
+
+1. **Conversation scan**: Walk the conversation for tool calls, user
+   corrections, repeated patterns, and stable decisions.
+
+2. **Artifact check**: If inside a git repo, run `git diff` and
+   `git log` to see what actually changed. If not in a git repo,
+   inspect the conversation for files created or modified, scan
+   target directories with `ls -lt`, and check file mtimes. Read
+   files that were created or modified either way.
+
+3. **Correction map**: Identify where the user redirected you.
+   Classify each correction before encoding (see Tier 1 in
+   `references/crystallization.md`):
+
+   | Type | Action | Example |
+   |---|---|---|
+   | Durable rule | Encode as instruction/anti-pattern | "Use Read, not cat" |
+   | Local preference | Parameterize, don't hardcode | "I prefer org format" |
+   | One-off env fix | Drop | "Use absolute path X not ~" |
+   | Unresolved judgment | Note as tradeoff, not rule | Changed direction mid-stream |
+
+   Only durable rules harden into the skill.
+
+4. **Tool sequence**: List the tools used in order. Look for:
+   - Repeated subsequences (same 3-4 tools in the same order)
+   - Tools that were always used together
+   - Tools the user told you to use instead of your default choice
+
+Produce a survey summary (internal, not written to file):
+
+```
+WORKFLOW: [2-5 word description]
+TRIGGER: [what kind of user request starts this]
+STEPS: [numbered sequence of what happened]
+CORRECTIONS: [classified: durable / preference / env / judgment]
+TOOLS: [tool sequence, noting which are essential vs incidental]
+OUTPUT: [what the workflow produces]
+DOMAIN: [knowledge that was discovered, not obvious from tools alone]
+```
+
+### Phase 2: Crystallize
+
+This is the hard part. Separate what's *repeatable* from what's
+*incidental*.
+
+Read `references/crystallization.md` for the full heuristic set.
+The core judgment:
+
+**Keep** if the step would be needed in 80%+ of similar invocations.
+**Parameterize** if the step varies but the shape stays the same.
+**Drop** if the step was specific to today's data/context/environment.
+
+For each step in the survey, classify:
+
+| Classification | Action |
+|---|---|
+| Core | Include as instruction in SKILL.md |
+| Parameterized | Include with variable markers |
+| Domain knowledge | Move to references/ |
+| Incidental | Drop |
+| Anti-pattern | Include as "don't do this" |
+
+Anti-patterns are especially valuable. If Claude went wrong and the
+user corrected it with a durable rule, that correction is a landmine
+for future sessions. Encode it explicitly.
+
+### Phase 3: Draft
+
+Write the skill. Follow these structural rules:
+
+**SKILL.md** (<500 lines):
+- Frontmatter: name, description (pushy, trigger-generous)
+- Purpose: one paragraph, what this skill does and why it exists
+- When to use / when not to: honest scope boundaries
+- Process: step-by-step instructions
+- Anti-patterns: things Claude will get wrong without guidance
+- Output format: what the skill produces
+
+**references/** (if needed):
+- Domain knowledge that's too detailed for SKILL.md
+- Lookup tables, templates, schemas
+- Each file with a clear loading condition
+
+**Description writing**: The description is the trigger mechanism.
+Write it pushy -- Claude undertriggers skills. Include:
+- What the skill does
+- Explicit trigger phrases
+- Adjacent-but-different situations to trigger on
+- Negative boundary (what NOT to trigger on)
+
+### Phase 4: Install draft
+
+Before writing to any target, check for collisions:
+
+1. Check if `<target>/<name>/` already exists
+2. If it exists: show a diff of the existing vs new SKILL.md,
+   snapshot the old version to `<target>/<name>.bak-<YYYYMMDD>/`,
+   then ask the user before overwriting
+3. Never overwrite silently
+
+Default install locations (detect which roots exist on this machine):
+
+1. Current project's `.claude/skills/<name>/` if project-specific
+2. User-scope skill directory (e.g., `~/.claude/skills/<name>/`)
+3. Any additional skill roots the user has configured
+
+If multiple user-scope skill roots exist, ask whether to install
+to all of them or just one. Don't auto-mirror -- the user may have
+intentional divergence between roots.
+
+Ask the user which scope. Then copy to install location(s).
+
+### Phase 5: Eval (optional)
+
+The eval phase validates that the crystallized skill actually
+reproduces the session's quality on similar problems. It is not
+always needed.
+
+**Skip eval when:**
+- The skill is lightweight / process-only (under ~50 lines)
+- The output is subjective (writing style, design taste)
+- The user says `--dry` or just wants the draft
+
+**Run eval when:**
+- The skill has objectively checkable output
+- The workflow is complex enough to break in subtle ways
+- The user explicitly wants to iterate
+
+If running eval, generate 2-3 realistic test prompts based on the
+original session's trigger. These should be variations of what a
+real user would say, not the exact words from this session.
+
+Then follow the skill-creator eval/optimize pipeline. Locate
+the skill-creator skill (search installed skill directories for
+`skill-creator/SKILL.md`) and follow its "Running and evaluating
+test cases" section:
+
+- Spawn with-skill and baseline runs in parallel
+- Draft assertions while runs execute
+- Grade, aggregate, launch viewer
+- Collect user feedback
+- Iterate on the skill
+
+After the user is satisfied, optionally run description optimization
+(skill-creator's "Description Optimization" section).
+
+### Phase 6: Ship
+
+Final checklist:
+- [ ] SKILL.md under 500 lines
+- [ ] Description is pushy and trigger-generous
+- [ ] Durable corrections encoded, one-off fixes dropped
+- [ ] References loaded conditionally, not always
+- [ ] No collision -- existing skill snapshotted if overwritten
+- [ ] Installed to user's chosen scope(s)
+- [ ] Eval passing (if eval was run)
+
+## Usage
+
+```
+/skillize                    # Infer workflow from session context
+/skillize deploy-pipeline    # Explicit topic / name hint
+/skillize --dry              # Show the draft, don't write files
+/skillize --scope user       # Pre-select install scope
+/skillize --no-eval          # Skip eval, draft + install only
+```
+
+When called with no arguments, survey the conversation to identify the
+dominant workflow. When called with a topic, use it as the skill name
+hint and focus extraction on that workflow thread.
+
+`--dry` prints the SKILL.md draft to the conversation for review
+before writing any files.
