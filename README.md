@@ -1,118 +1,130 @@
 # Skills
 
-> Agent skills for Claude Code, Codex, and any [agentskills.io](https://agentskills.io)-compatible agent.
+> Agent skills for design, workflow capture, and skill distribution.
 
 [![license](https://img.shields.io/github/license/lroolle/skills)](LICENSE)
 [![spec](https://img.shields.io/badge/spec-agentskills.io-blue)](https://agentskills.io/specification)
 
-Opinionated skills for design, workflow capture, and skill distribution.
-Each skill is a self-contained directory with a `SKILL.md` file --
-instructions, references, and scripts that agents load dynamically.
+Small, composable skills that solve real problems I hit daily with Claude Code
+and Codex. Not a framework. Not a process. Just focused tools you can drop into
+any project and hack on.
 
-## Skills
-
-| Skill | What it does |
-|---|---|
-| [kiln](skills/kiln/) | UX design instrument. Layered architecture: perceptual principles, composable patterns, parameterized material palettes, anti-AI-slop detection. Six curated kits (broadsheet, terminal, warm-ground, cold-open, gallery, burnt-studio). Generates and audits interfaces. |
-| [skillize](skills/skillize/) | Session-to-skill crystallizer. Extracts repeatable workflows from agent sessions, classifies corrections by durability, drafts SKILL.md with references. Optional eval pipeline via skill-creator. |
-| [skillbun](skills/skillbun/) | Skill bundler. Resolves inter-skill dependencies, renames to avoid collisions, packages multiple skills into a single `.skill` archive for distribution. |
-
-## Quick start
-
-### Install a single skill
+## Quickstart
 
 ```bash
-# Claude Code
-cp -r skills/kiln ~/.claude/skills/kiln
-
-# VS Code / Copilot
-cp -r skills/kiln .agents/skills/kiln
-
-# Codex
-cp -r skills/kiln ~/.codex/skills/kiln
+npx skills@latest add lroolle/skills
 ```
 
-Restart your agent after installing.
+Pick the skills you want and which agents to install them on.
 
-### Use it
+<details><summary>Manual install</summary>
 
-Just mention the skill's domain in conversation. Skills activate
-automatically based on their description:
-
-```
-> Design a dashboard for monitoring build pipelines
-  (kiln activates -- loads patterns, materials, motion references)
-
-> Turn this session into a reusable skill
-  (skillize activates -- surveys session, crystallizes workflow)
-
-> Bundle skillize with its dependencies for sharing
-  (skillbun activates -- resolves deps, renames, packages)
+```bash
+git clone https://github.com/lroolle/skills.git
+cd skills
+./scripts/link-skills.sh
 ```
 
-Or invoke directly: `/kiln craft`, `/skillize`, `/skillbun skillize`.
+Or copy individual skills:
+
+```bash
+cp -r skills/design/kiln ~/.claude/skills/kiln
+```
+
+</details>
+
+## Why these skills exist
+
+### The AI-generated look
+
+Most AI-built interfaces are instantly recognizable: Inter font, purple
+gradient, card-in-card layouts, magnetic cursor effects. They converge on the
+same defaults because agents reach for training-data reflexes.
+
+**kiln** fixes this by separating permanent perceptual rules (human vision
+doesn't change) from temporal taste (what's saturated right now). It ships six
+material kits with distinct personalities, anti-pattern detection, and a
+quarterly-versioned zeitgeist file that tracks which aesthetics have been
+strip-mined by AI generators.
+
+### The workflow you can't repeat
+
+You spend 40 minutes getting an agent to do something perfectly -- tool
+sequences, corrections, domain knowledge discovered along the way. Next week
+you need the same workflow and start from scratch.
+
+**skillize** crystallizes a session into a reusable skill. It surveys the
+conversation, classifies corrections by durability (permanent rule vs one-off
+fix), extracts the repeatable pattern, and drafts a SKILL.md. The workflow is
+preserved, not just the output.
+
+### Skills that can't travel alone
+
+You build a skill that depends on another skill's scripts. You share the
+`.skill` file and the recipient's eval pipeline silently breaks because the
+dependency isn't there.
+
+**skillbun** resolves inter-skill dependencies, renames to avoid collisions
+with independently installed copies, and packages everything into a single
+`.skill` archive. One file, one install.
+
+## Reference
+
+### Design
+
+Skills for frontend craft, UX, and visual design.
+
+- **[kiln](skills/design/kiln/SKILL.md)** -- Precision UX design instrument.
+  Layered architecture: perceptual principles -> composable patterns ->
+  parameterized material palettes. Six curated kits. Anti-AI-slop detection.
+  Generates and audits interfaces.
+
+### Meta
+
+Skills for building, packaging, and distributing other skills.
+
+- **[skillize](skills/meta/skillize/SKILL.md)** -- Session-to-skill
+  crystallizer. Extracts repeatable workflows from agent sessions, classifies
+  corrections, drafts SKILL.md with references. Optional eval pipeline.
+- **[skillbun](skills/meta/skillbun/SKILL.md)** -- Skill bundler. Resolves
+  dependencies, renames to avoid collisions, packages into `.skill` archives.
 
 ## Repo structure
 
 ```
 .
-├── skills/                   # all skills live here
-│   ├── kiln/                 #   UX design (6 files)
-│   │   ├── SKILL.md
-│   │   └── references/       #   patterns, materials, motion, adaptation, zeitgeist
-│   ├── skillize/             #   session-to-skill (2 files)
-│   │   ├── SKILL.md
-│   │   └── references/       #   crystallization heuristics
-│   └── skillbun/             #   skill bundler (3 files)
-│       ├── SKILL.md
-│       ├── references/       #   bundle format spec
-│       └── scripts/          #   bundle.sh helper
-└── template/                 # starter SKILL.md for new skills
+├── .claude-plugin/           # plugin manifest for skills.sh
+│   └── plugin.json
+├── scripts/                  # repo utilities
+│   ├── link-skills.sh        #   symlink all skills to ~/.claude/skills/
+│   └── list-skills.sh        #   list all SKILL.md files
+├── skills/
+│   ├── design/               #   frontend craft, UX
+│   │   └── kiln/
+│   └── meta/                 #   skill tooling
+│       ├── skillize/
+│       └── skillbun/
+└── template/                 # starter SKILL.md
     └── SKILL.md
-```
-
-Each skill follows the [Agent Skills spec](https://agentskills.io/specification):
-
-```
-skill-name/
-├── SKILL.md          # required: metadata + instructions (<500 lines)
-├── references/       # optional: domain knowledge, loaded on demand
-├── scripts/          # optional: executable helpers
-└── assets/           # optional: templates, static resources
 ```
 
 ## Creating a new skill
 
-1. Copy `template/SKILL.md` into a new directory under `skills/`
+1. Copy `template/SKILL.md` into a new directory under `skills/<category>/`
 2. Name the directory to match the `name:` field in frontmatter
-3. Write the instructions
-4. Test: `cp -r skills/my-skill ~/.claude/skills/my-skill`
-5. Or: use `/skillize` after completing a workflow to auto-extract
+3. Write the instructions (keep SKILL.md under 500 lines)
+4. Add the skill to `.claude-plugin/plugin.json` and the category `README.md`
+5. Test: `./scripts/link-skills.sh` then invoke in your agent
 
-See [agentskills.io/skill-creation/best-practices](https://agentskills.io/skill-creation/best-practices)
-for writing guidance.
-
-## How skills work
-
-Skills use progressive disclosure to stay lightweight:
-
-1. **Metadata** (~100 tokens) -- `name` and `description` from frontmatter.
-   Always loaded. This is how the agent decides whether to activate the skill.
-2. **Instructions** (<5000 tokens) -- the full SKILL.md body.
-   Loaded when the skill activates.
-3. **References** (on demand) -- files in `references/`, `scripts/`, `assets/`.
-   Loaded only when the skill's instructions say to.
-
-The agent reads many skill descriptions but only loads the full body of
-skills relevant to the current task.
+Or: use `/skillize` after completing a workflow to auto-extract one.
 
 ## Contributing
 
 1. Fork the repo
-2. Create your skill under `skills/`
-3. Validate: `name` matches directory, description under 1024 chars,
-   SKILL.md under 500 lines
-4. Open a PR
+2. Create your skill under the appropriate `skills/<category>/`
+3. Validate: `name` matches directory, description under 1024 chars
+4. Add to category `README.md` and `.claude-plugin/plugin.json`
+5. Open a PR
 
 ## License
 
