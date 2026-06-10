@@ -1,7 +1,9 @@
 # Skills
 
-> Agent skills for design, workflow capture, and skill distribution.
+> Agent skills with opinions: design, motion, artifacts, decisions,
+> and the craft of making skills themselves.
 
+[![skills.sh](https://skills.sh/b/lroolle/skills)](https://skills.sh/lroolle/skills)
 [![license](https://img.shields.io/github/license/lroolle/skills)](LICENSE)
 [![spec](https://img.shields.io/badge/spec-agentskills.io-blue)](https://agentskills.io/specification)
 
@@ -47,6 +49,46 @@ material kits with distinct personalities, anti-pattern detection, and a
 quarterly-versioned zeitgeist file that tracks which aesthetics have been
 strip-mined by AI generators.
 
+### The animation that doesn't feel right
+
+Agents add animation the way they add comments: everywhere, uniformly,
+without judgment. `transition: all`, scale(0) entrances, ease-in on
+exits, motion on keyboard actions that fire a hundred times a day.
+
+**animate-it** is the implementation protocol: gate (should this animate
+at all?), classify the motion type, specify easing/duration/tool, then
+code against the rules that separate "has animation" from "feels right."
+Kiln decides what should move and why; animate-it makes it move
+correctly.
+
+### The wall of markdown
+
+Agents produce 300-line markdown plans nobody reads. Comparisons get
+stacked instead of side-by-side, timelines become bullet lists, and
+anything interactive gets described instead of built. The fix isn't
+"always output HTML" -- generated HTML has its own failure modes:
+slop styling, lost git diffs, dead-end editors.
+
+**htmlize** is the artifact protocol: gate (does this deliverable beat
+markdown?), shape (which artifact pattern), build (self-contained
+single file, calm typography, safe DOM), check (the review rubric).
+Exports go through the clipboard; markdown stays the source of truth.
+
+### The first answer that sticks
+
+Claude picks the first reasonable approach and builds on it. For most
+problems, that's fine. For decisions that are expensive to reverse --
+architecture, naming, strategy -- it produces competent, forgettable
+output. The real cost isn't a bad answer. It's never seeing the better
+one because you stopped looking.
+
+**parallax** forces a structured pause: frame the decision, generate 3-5
+approaches that differ on fundamental assumptions (not implementation
+details), surface the traps, commit to one with explicit trade-offs.
+Inspired by [ADHD](https://github.com/UditAkhourii/adhd)'s divergent
+ideation work, but designed as a lightweight protocol -- not an
+orchestration harness. One context, zero infrastructure.
+
 ### The workflow you can't repeat
 
 You spend 40 minutes getting an agent to do something perfectly -- tool
@@ -68,11 +110,7 @@ dependency isn't there.
 with independently installed copies, and packages everything into a single
 `.skill` archive. One file, one install.
 
-## Reference
-
-### Design
-
-Skills for frontend craft, UX, and visual design.
+## Skills
 
 - **[kiln](skills/kiln/SKILL.md)** -- Precision UX design instrument.
   Layered architecture: perceptual principles -> composable patterns ->
@@ -86,24 +124,14 @@ Skills for frontend craft, UX, and visual design.
   Gate -> shape -> build -> check. Turns agent deliverables into
   self-contained HTML artifacts when they beat markdown -- and says no
   when they don't. Clipboard exports, markdown as source of truth.
-
-### Meta
-
-Skills for building, packaging, and distributing other skills.
-
-- **[skillize](skills/skillize/SKILL.md)** -- Session-to-skill
-  crystallizer. Extracts repeatable workflows from agent sessions, classifies
-  corrections, drafts SKILL.md with references. Optional eval pipeline.
-- **[skillbun](skills/skillbun/SKILL.md)** -- Skill bundler. Resolves
-  dependencies, renames to avoid collisions, packages into `.skill` archives.
-
-### Reasoning
-
-Skills for how the agent thinks before it acts.
-
 - **[parallax](skills/parallax/SKILL.md)** -- Multi-perspective decision
   protocol. Frame -> spread -> commit. Forces genuinely different alternatives
   before choosing. Trap detection as a first-class operation.
+- **[skillize](skills/skillize/SKILL.md)** -- Session-to-skill crystallizer.
+  Extracts repeatable workflows from agent sessions, classifies corrections,
+  drafts SKILL.md with references. Optional eval pipeline.
+- **[skillbun](skills/skillbun/SKILL.md)** -- Skill bundler. Resolves
+  dependencies, renames to avoid collisions, packages into `.skill` archives.
 
 ## Repo structure
 
@@ -118,9 +146,9 @@ Skills for how the agent thinks before it acts.
 │   ├── kiln/
 │   ├── animate-it/
 │   ├── htmlize/
+│   ├── parallax/
 │   ├── skillize/
-│   ├── skillbun/
-│   └── parallax/
+│   └── skillbun/
 └── template/                 # starter SKILL.md
     └── SKILL.md
 ```

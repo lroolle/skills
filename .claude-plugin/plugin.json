@@ -2,10 +2,10 @@
   "name": "lroolle-skills",
   "skills": [
     "./skills/kiln",
-    "./skills/skillize",
-    "./skills/skillbun",
-    "./skills/parallax",
     "./skills/animate-it",
-    "./skills/htmlize"
+    "./skills/htmlize",
+    "./skills/parallax",
+    "./skills/skillize",
+    "./skills/skillbun"
   ]
 }
