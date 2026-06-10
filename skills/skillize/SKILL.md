@@ -1,6 +1,6 @@
 ---
 name: skillize
-description: >
+description: >-
   Crystallize a session's workflow into a reusable Claude Code skill.
   Reconstructs what happened, extracts the repeatable pattern, drafts
   SKILL.md with references, then optionally runs eval/optimize via
@@ -116,27 +116,48 @@ for future sessions. Encode it explicitly.
 
 ### Phase 3: Draft
 
-Write the skill. Follow these structural rules:
+Write the skill. The structure follows the agent skills spec:
 
-**SKILL.md** (<500 lines):
-- Frontmatter: name, description (pushy, trigger-generous)
-- Purpose: one paragraph, what this skill does and why it exists
+```
+skill-name/
+├── SKILL.md          (required)
+└── Bundled Resources  (optional)
+    ├── scripts/       executable code for deterministic tasks
+    ├── references/    docs loaded into context as needed
+    └── assets/        files used in output (templates, etc.)
+```
+
+**Progressive disclosure** -- skills load in three tiers:
+1. **Metadata** (name + description): ~100 words, always in context
+2. **SKILL.md body**: <500 lines ideal, loaded when skill triggers
+3. **Bundled resources**: unlimited, loaded on demand by the skill
+
+Keep SKILL.md under 500 lines. When approaching that limit, move
+domain knowledge into references/ with clear pointers about when to
+read each file.
+
+**SKILL.md contents:**
+- Frontmatter: name, description (see below)
+- Purpose: one paragraph, what and why
 - When to use / when not to: honest scope boundaries
 - Process: step-by-step instructions
-- Anti-patterns: things Claude will get wrong without guidance
+- Anti-patterns: things Claude gets wrong without guidance
 - Output format: what the skill produces
 
-**references/** (if needed):
-- Domain knowledge that's too detailed for SKILL.md
-- Lookup tables, templates, schemas
-- Each file with a clear loading condition
+**Writing style**: Explain the *why* behind instructions rather than
+heavy-handed MUSTs. The model using this skill is smart -- when it
+understands the reasoning, it adapts to edge cases instead of
+following rigid rules off a cliff. If you find yourself writing
+ALWAYS or NEVER in caps, reframe as reasoning.
 
 **Description writing**: The description is the trigger mechanism.
-Write it pushy -- Claude undertriggers skills. Include:
+Claude undertriggers skills -- it needs explicit nudging. Include:
 - What the skill does
-- Explicit trigger phrases
-- Adjacent-but-different situations to trigger on
+- Explicit trigger phrases ("turn this into a skill", "skillize")
+- Adjacent situations to trigger on ("I keep doing this same thing")
 - Negative boundary (what NOT to trigger on)
+- Be pushy. "Use when the user mentions X, Y, or Z, even if they
+  don't explicitly name the skill" is better than a terse summary.
 
 ### Phase 4: Install draft
 
@@ -178,21 +199,28 @@ always needed.
 
 If running eval, generate 2-3 realistic test prompts based on the
 original session's trigger. These should be variations of what a
-real user would say, not the exact words from this session.
+real user would say -- concrete, detailed, with context -- not the
+exact words from this session and not abstract one-liners.
 
-Then follow the skill-creator eval/optimize pipeline. Locate
-the skill-creator skill (search installed skill directories for
-`skill-creator/SKILL.md`) and follow its "Running and evaluating
-test cases" section:
+**If skill-creator is available** (check installed skill directories
+for `skill-creator/SKILL.md`): follow its eval/optimize pipeline:
 
 - Spawn with-skill and baseline runs in parallel
 - Draft assertions while runs execute
-- Grade, aggregate, launch viewer
-- Collect user feedback
-- Iterate on the skill
+- Grade, aggregate, launch eval viewer for the user
+- Collect feedback, iterate on the skill
+- Optionally run description optimization
 
-After the user is satisfied, optionally run description optimization
-(skill-creator's "Description Optimization" section).
+**If skill-creator is NOT available**: run a lightweight eval:
+
+- For each test prompt, invoke the skill yourself and capture output
+- Compare the output against the session's original quality
+- Ask the user to review: "Does this reproduce the workflow? What's
+  missing or wrong?"
+- Iterate based on their feedback
+
+Either way, the eval loop ends when the user is satisfied or
+feedback is empty.
 
 ### Phase 6: Ship
 

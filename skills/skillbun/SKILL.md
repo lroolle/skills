@@ -1,6 +1,6 @@
 ---
 name: skillbun
-description: >
+description: >-
   Bundle agent skills with their dependencies into a distributable
   .skill archive. Resolves inter-skill dependencies, renames to
   avoid collisions, validates, and produces a .skill (zip) or .zip
