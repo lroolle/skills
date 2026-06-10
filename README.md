@@ -82,6 +82,10 @@ Skills for frontend craft, UX, and visual design.
   protocol. Gate -> classify -> specify -> code -> check. Custom easing
   curves, duration tables, tool selection, and a review rubric for
   animation code that feels wrong.
+- **[htmlize](skills/htmlize/SKILL.md)** -- HTML artifact protocol.
+  Gate -> shape -> build -> check. Turns agent deliverables into
+  self-contained HTML artifacts when they beat markdown -- and says no
+  when they don't. Clipboard exports, markdown as source of truth.
 
 ### Meta
 
@@ -113,6 +117,7 @@ Skills for how the agent thinks before it acts.
 ├── skills/                   # flat -- each skill is self-contained
 │   ├── kiln/
 │   ├── animate-it/
+│   ├── htmlize/
 │   ├── skillize/
 │   ├── skillbun/
 │   └── parallax/
