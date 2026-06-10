@@ -3,6 +3,7 @@
   "skills": [
     "./skills/kiln",
     "./skills/skillize",
-    "./skills/skillbun"
+    "./skills/skillbun",
+    "./skills/parallax"
   ]
 }

@@ -89,6 +89,14 @@ Skills for building, packaging, and distributing other skills.
 - **[skillbun](skills/skillbun/SKILL.md)** -- Skill bundler. Resolves
   dependencies, renames to avoid collisions, packages into `.skill` archives.
 
+### Reasoning
+
+Skills for how the agent thinks before it acts.
+
+- **[parallax](skills/parallax/SKILL.md)** -- Multi-perspective decision
+  protocol. Frame -> spread -> commit. Forces genuinely different alternatives
+  before choosing. Trap detection as a first-class operation.
+
 ## Repo structure
 
 ```
@@ -101,7 +109,8 @@ Skills for building, packaging, and distributing other skills.
 ├── skills/                   # flat -- each skill is self-contained
 │   ├── kiln/
 │   ├── skillize/
-│   └── skillbun/
+│   ├── skillbun/
+│   └── parallax/
 └── template/                 # starter SKILL.md
     └── SKILL.md
 ```
