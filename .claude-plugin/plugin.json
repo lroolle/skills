@@ -1,8 +1,8 @@
 {
   "name": "lroolle-skills",
   "skills": [
-    "./skills/design/kiln",
-    "./skills/meta/skillize",
-    "./skills/meta/skillbun"
+    "./skills/kiln",
+    "./skills/skillize",
+    "./skills/skillbun"
   ]
 }

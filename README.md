@@ -28,7 +28,7 @@ cd skills
 Or copy individual skills:
 
 ```bash
-cp -r skills/design/kiln ~/.claude/skills/kiln
+cp -r skills/kiln ~/.claude/skills/kiln
 ```
 
 </details>
@@ -74,7 +74,7 @@ with independently installed copies, and packages everything into a single
 
 Skills for frontend craft, UX, and visual design.
 
-- **[kiln](skills/design/kiln/SKILL.md)** -- Precision UX design instrument.
+- **[kiln](skills/kiln/SKILL.md)** -- Precision UX design instrument.
   Layered architecture: perceptual principles -> composable patterns ->
   parameterized material palettes. Six curated kits. Anti-AI-slop detection.
   Generates and audits interfaces.
@@ -83,10 +83,10 @@ Skills for frontend craft, UX, and visual design.
 
 Skills for building, packaging, and distributing other skills.
 
-- **[skillize](skills/meta/skillize/SKILL.md)** -- Session-to-skill
+- **[skillize](skills/skillize/SKILL.md)** -- Session-to-skill
   crystallizer. Extracts repeatable workflows from agent sessions, classifies
   corrections, drafts SKILL.md with references. Optional eval pipeline.
-- **[skillbun](skills/meta/skillbun/SKILL.md)** -- Skill bundler. Resolves
+- **[skillbun](skills/skillbun/SKILL.md)** -- Skill bundler. Resolves
   dependencies, renames to avoid collisions, packages into `.skill` archives.
 
 ## Repo structure
@@ -98,22 +98,20 @@ Skills for building, packaging, and distributing other skills.
 ├── scripts/                  # repo utilities
 │   ├── link-skills.sh        #   symlink all skills to ~/.claude/skills/
 │   └── list-skills.sh        #   list all SKILL.md files
-├── skills/
-│   ├── design/               #   frontend craft, UX
-│   │   └── kiln/
-│   └── meta/                 #   skill tooling
-│       ├── skillize/
-│       └── skillbun/
+├── skills/                   # flat -- each skill is self-contained
+│   ├── kiln/
+│   ├── skillize/
+│   └── skillbun/
 └── template/                 # starter SKILL.md
     └── SKILL.md
 ```
 
 ## Creating a new skill
 
-1. Copy `template/SKILL.md` into a new directory under `skills/<category>/`
+1. Copy `template/SKILL.md` into a new directory under `skills/`
 2. Name the directory to match the `name:` field in frontmatter
 3. Write the instructions (keep SKILL.md under 500 lines)
-4. Add the skill to `.claude-plugin/plugin.json` and the category `README.md`
+4. Add the skill to `.claude-plugin/plugin.json`
 5. Test: `./scripts/link-skills.sh` then invoke in your agent
 
 Or: use `/skillize` after completing a workflow to auto-extract one.
@@ -121,9 +119,9 @@ Or: use `/skillize` after completing a workflow to auto-extract one.
 ## Contributing
 
 1. Fork the repo
-2. Create your skill under the appropriate `skills/<category>/`
+2. Create your skill under `skills/`
 3. Validate: `name` matches directory, description under 1024 chars
-4. Add to category `README.md` and `.claude-plugin/plugin.json`
+4. Add to `.claude-plugin/plugin.json`
 5. Open a PR
 
 ## License

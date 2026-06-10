@@ -1,10 +1,13 @@
-Skills are organized into category folders under `skills/`:
+Skills live in flat directories under `skills/`. Each skill is a
+self-contained folder with a SKILL.md and optional bundled resources
+(scripts/, references/, assets/).
 
-- `design/` -- frontend craft, UX, visual design
-- `meta/` -- building, packaging, and distributing skills
+Every skill in `skills/` must have:
+- An entry in `.claude-plugin/plugin.json`
+- A listing in the top-level `README.md`
 
-Every skill in a category folder must have a reference in the
-top-level `README.md` and an entry in `.claude-plugin/plugin.json`.
-
-Each category folder has a `README.md` that lists every skill in
-the category with a one-line description, linked to its `SKILL.md`.
+Skill structure follows the agent skills spec (agentskills.io):
+- `name` and `description` in YAML frontmatter (required)
+- SKILL.md body under 500 lines
+- Description is the trigger mechanism -- write it pushy
+- References loaded on demand, not always
