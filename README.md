@@ -78,6 +78,10 @@ Skills for frontend craft, UX, and visual design.
   Layered architecture: perceptual principles -> composable patterns ->
   parameterized material palettes. Six curated kits. Anti-AI-slop detection.
   Generates and audits interfaces.
+- **[animate-it](skills/animate-it/SKILL.md)** -- Animation implementation
+  protocol. Gate -> classify -> specify -> code -> check. Custom easing
+  curves, duration tables, tool selection, and a review rubric for
+  animation code that feels wrong.
 
 ### Meta
 
@@ -108,6 +112,7 @@ Skills for how the agent thinks before it acts.
 │   └── list-skills.sh        #   list all SKILL.md files
 ├── skills/                   # flat -- each skill is self-contained
 │   ├── kiln/
+│   ├── animate-it/
 │   ├── skillize/
 │   ├── skillbun/
 │   └── parallax/

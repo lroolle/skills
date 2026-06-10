@@ -4,6 +4,7 @@
     "./skills/kiln",
     "./skills/skillize",
     "./skills/skillbun",
-    "./skills/parallax"
+    "./skills/parallax",
+    "./skills/animate-it"
   ]
 }
