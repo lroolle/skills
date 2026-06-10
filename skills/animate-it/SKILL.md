@@ -313,5 +313,5 @@ For review mode:
 | File | Load when |
 |---|---|
 | [patterns.md](references/patterns.md) | Implementing a specific animation type (entrance, gesture, scroll, etc.) |
-| [vocabulary.md](references/vocabulary.md) | User uses an animation term you need to look up |
+| [vocabulary.md](references/vocabulary.md) | User uses an animation term you need to look up; includes production constants from sonner/vaul |
 | [easing-curves.md](references/easing-curves.md) | Choosing or customizing easing curves and spring configs |
