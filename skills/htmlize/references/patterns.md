@@ -135,6 +135,12 @@ Mistakes:
 For flowcharts, architecture maps, sequence diagrams, state
 machines -- standalone or embedded in other shapes.
 
+Hand-author only small diagrams: under ~8 nodes, no crossing
+edges. Past that, author in a diagram language and render to SVG
+at build time -- the pipeline, renderers, and dark-mode handling
+are in [diagrams.md](diagrams.md). The rules below govern
+hand-authored SVG and the taste of rendered ones alike.
+
 Rules:
 - Real `<svg>` elements -- `<rect>`, `<path>`, `<text>`, `<g>` --
   not an embedded image. The reader should be able to copy label

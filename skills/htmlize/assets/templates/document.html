@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SLOT: document title</title>
+<style>
+  :root {
+    --bg:       #faf9f7;
+    --surface:  #ffffff;
+    --ink:      #1d1d20;
+    --ink-2:    #5c5c66;
+    --rule:     #e6e4de;
+    --accent:   #1a6db0;
+    --ok:       #166534;
+    --warn:     #b45309;
+    --bad:      #b91c1c;
+    --serif: "Charter", "Iowan Old Style", Georgia, serif;
+    --sans:  ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --mono:  ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg:      #131316;
+      --surface: #1c1c21;
+      --ink:     #ececf0;
+      --ink-2:   #9c9ca8;
+      --rule:    #2c2c33;
+      --accent:  #5aa3dd;
+      /* Status colors need their own dark values -- the light ones
+         fall below 3:1 contrast on this background */
+      --ok:      #4ade80;
+      --warn:    #fbbf24;
+      --bad:     #f87171;
+    }
+  }
+
+  body {
+    font: 17px/1.55 var(--serif);
+    background: var(--bg);
+    color: var(--ink);
+    margin: 3rem auto;
+    padding: 0 1.25rem;
+    max-width: calc(72ch + 16.5rem);
+  }
+  header, footer { max-width: 72ch; margin-left: auto; }
+  .layout {
+    display: grid;
+    grid-template-columns: 14rem minmax(0, 72ch);
+    gap: 2.5rem;
+    justify-content: end;
+    align-items: start;
+  }
+
+  h1 { font-size: 1.9rem; line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 0.3em; }
+  h2 { font-size: 1.3rem; margin-top: 2.2em; }
+  .framing { color: var(--ink-2); margin-top: 0; }
+  a { color: var(--accent); }
+
+  .toc {
+    position: sticky;
+    top: 1.5rem;
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    line-height: 1.7;
+  }
+  .toc summary {
+    font-weight: 600;
+    color: var(--ink-2);
+    list-style: none;
+    cursor: default;
+    pointer-events: none;   /* fixed open on desktop */
+  }
+  .toc a { display: block; color: var(--ink-2); text-decoration: none; }
+  .toc a:hover { color: var(--accent); }
+
+  code, pre { font-family: var(--mono); font-size: 0.92em; }
+  pre {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 1rem;
+    overflow-x: auto;
+  }
+  table { border-collapse: collapse; width: 100%; font-size: 0.95em; }
+  th, td {
+    text-align: left;
+    vertical-align: top;
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  th { font-family: var(--sans); font-size: 0.85em; }
+
+  /* Status is color plus a word, never color alone */
+  .ok   { color: var(--ok); }
+  .warn { color: var(--warn); }
+  .bad  { color: var(--bad); }
+
+  details { margin: 1em 0; }
+  details summary { cursor: pointer; color: var(--ink-2); }
+
+  figure.diagram { margin: 1.5em 0; overflow-x: auto; }
+  figure.diagram svg { max-width: 100%; height: auto; }
+  figure.diagram figcaption {
+    font-family: var(--sans); font-size: 0.85em; color: var(--ink-2);
+  }
+  /* Dark-mode remap for graphviz output -- presentation attributes
+     lose to any CSS rule. See references/diagrams.md. */
+  .diagram svg [fill="#ffffff"]   { fill: var(--surface); }
+  .diagram svg [fill="#faf9f7"]   { fill: var(--bg); }
+  .diagram svg [fill="#1d1d20"]   { fill: var(--ink); }
+  .diagram svg [fill="#5c5c66"]   { fill: var(--ink-2); }
+  .diagram svg [stroke="#5c5c66"] { stroke: var(--ink-2); }
+  .diagram svg [stroke="#e6e4de"] { stroke: var(--rule); }
+  .diagram svg [fill="#1a6db0"]   { fill: var(--accent); }
+  .diagram svg [stroke="#1a6db0"] { stroke: var(--accent); }
+
+  @media (max-width: 900px) {
+    body { max-width: 72ch; margin: 1.5rem auto; }
+    header, footer { margin-left: 0; }
+    .layout { display: block; }
+    .toc { position: static; margin-bottom: 1.5rem; }
+    .toc summary { pointer-events: auto; cursor: pointer; list-style: revert; }
+    .grid, .columns { grid-template-columns: 1fr; }
+  }
+  @media print {
+    body { max-width: none; margin: 0; font-size: 11pt; }
+    .no-print { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>SLOT: Title</h1>
+  <p class="framing">SLOT: One sentence -- what this document is and
+  what the reader should do with it. This is the five-second viewport.</p>
+</header>
+
+<div class="layout">
+  <aside class="no-print">
+    <details class="toc" open>
+      <summary>Contents</summary>
+      <nav id="toc"><!-- built from h2 headings on load --></nav>
+    </details>
+  </aside>
+
+  <main id="content">
+
+    <section>
+      <h2>SLOT: First section</h2>
+      <p>SLOT: Body prose. Keep the narrative spine visible; detail
+      goes into collapsed details blocks below.</p>
+      <table>
+        <thead><tr><th>SLOT: col</th><th>SLOT: col</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>SLOT</td><td>SLOT</td><td><strong class="ok">OK</strong></td></tr>
+          <tr><td>SLOT</td><td>SLOT</td><td><strong class="bad">Blocked</strong></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>SLOT: Diagram section</h2>
+      <figure class="diagram">
+        <!-- SLOT: inline <svg> from scripts/render-diagram.sh
+             (see references/diagrams.md) -->
+        <figcaption>SLOT: caption naming what the diagram shows.</figcaption>
+      </figure>
+      <details>
+        <summary>Diagram source</summary>
+        <pre><code><!-- SLOT: the .dot/.mmd source, kept editable --></code></pre>
+      </details>
+    </section>
+
+    <section>
+      <h2>SLOT: Detail section</h2>
+      <details>
+        <summary>SLOT: collapsed detail -- print opens these automatically</summary>
+        <p>SLOT: depth that would break the reading flow if expanded.</p>
+      </details>
+    </section>
+
+    <!-- SLOT: for plans, end with the "not doing" section --
+         options considered and cut, one line each on why. -->
+
+  </main>
+</div>
+
+<script>
+  // Build the TOC from h2 headings.
+  const toc = document.getElementById('toc');
+  document.querySelectorAll('#content h2').forEach((h, i) => {
+    if (!h.id) h.id = 's' + (i + 1) + '-' +
+      h.textContent.toLowerCase().replace(/[^a-z0-9]+/g, '-').slice(0, 40);
+    const a = document.createElement('a');
+    a.href = '#' + h.id;
+    a.textContent = h.textContent;
+    toc.appendChild(a);
+  });
+
+  // Closed <details> hide their content from print; CSS cannot
+  // open them. Open before printing, restore after.
+  addEventListener('beforeprint', () =>
+    document.querySelectorAll('details:not([open])').forEach(d => {
+      d.dataset.autoOpened = '';
+      d.open = true;
+    }));
+  addEventListener('afterprint', () =>
+    document.querySelectorAll('details[data-auto-opened]').forEach(d => {
+      d.open = false;
+      delete d.dataset.autoOpened;
+    }));
+</script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SLOT: deck title</title>
+<style>
+  :root {
+    --bg:     #faf9f7;
+    --ink:    #1d1d20;
+    --ink-2:  #5c5c66;
+    --accent: #1a6db0;
+    --sans: ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg:     #131316;
+      --ink:    #ececf0;
+      --ink-2:  #9c9ca8;
+      --accent: #5aa3dd;
+    }
+  }
+
+  body {
+    font: 28px/1.45 var(--sans);   /* readable from the back of the room */
+    background: var(--bg);
+    color: var(--ink);
+    margin: 0;
+  }
+  .slide {
+    display: none;
+    min-height: 100vh;
+    min-height: 100dvh;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8vmin;
+  }
+  .slide.current { display: flex; }
+  h1 { font-size: 2.4em; line-height: 1.1; letter-spacing: -0.01em; margin: 0 0 0.3em; }
+  h2 { font-size: 1.6em; line-height: 1.2; margin: 0 0 0.6em; }
+  .muted { color: var(--ink-2); }
+  code { font-family: var(--mono); font-size: 0.9em; }
+  .slide svg { max-width: 100%; height: auto; }
+
+  .counter {
+    position: fixed;
+    right: 1rem;
+    bottom: 0.75rem;
+    font-size: 16px;
+    color: var(--ink-2);
+  }
+
+  @media print {
+    .slide { display: flex; min-height: 95vh; page-break-after: always; }
+    .counter { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<section class="slide">
+  <h1>SLOT: Title</h1>
+  <p class="muted">SLOT: one-line subtitle / who / date</p>
+</section>
+
+<section class="slide">
+  <h2>SLOT: One idea per slide</h2>
+  <p>SLOT: a diagram beats bullets -- inline the SVG here.</p>
+</section>
+
+<section class="slide">
+  <h2>SLOT: Summary</h2>
+  <p>SLOT: the slide someone photographs.</p>
+</section>
+
+<p class="counter" id="counter"></p>
+
+<script>
+  // Arrow keys, counter, click to advance. That is the whole budget.
+  const slides = [...document.querySelectorAll('.slide')];
+  const counter = document.getElementById('counter');
+  let i = 0;
+  function show(n) {
+    i = Math.max(0, Math.min(slides.length - 1, n));
+    slides.forEach((s, k) => s.classList.toggle('current', k === i));
+    counter.textContent = (i + 1) + ' / ' + slides.length;
+    history.replaceState(null, '', '#' + (i + 1));
+  }
+  addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ') show(i + 1);
+    if (e.key === 'ArrowLeft') show(i - 1);
+  });
+  addEventListener('click', () => show(i + 1));
+  show((parseInt(location.hash.slice(1), 10) || 1) - 1);
+</script>
+</body>
+</html>

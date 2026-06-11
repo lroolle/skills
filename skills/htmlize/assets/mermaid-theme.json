@@ -1,0 +1,14 @@
+{
+  "theme": "base",
+  "themeVariables": {
+    "fontFamily": "ui-sans-serif, system-ui, sans-serif",
+    "fontSize": "14px",
+    "primaryColor": "#ffffff",
+    "primaryTextColor": "#1d1d20",
+    "primaryBorderColor": "#e6e4de",
+    "lineColor": "#5c5c66",
+    "secondaryColor": "#faf9f7",
+    "tertiaryColor": "#faf9f7"
+  },
+  "flowchart": { "htmlLabels": false }
+}

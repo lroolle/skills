@@ -6,6 +6,12 @@ the default visual system for when the user has no design system
 of their own, and the failure list that tells you an artifact
 needs rebuilding.
 
+The templates in [../assets/templates/](../assets/templates/)
+are this baseline made executable -- start from one of them
+rather than retyping the CSS below. This file is the why and the
+retheming reference; the templates are the what. They ship
+together: a change to one is a change to both.
+
 ## Documents vs tools
 
 Two baselines, chosen by what the artifact is:

@@ -123,7 +123,9 @@ with independently installed copies, and packages everything into a single
 - **[htmlize](skills/htmlize/SKILL.md)** -- HTML artifact protocol.
   Gate -> shape -> build -> check. Turns agent deliverables into
   self-contained HTML artifacts when they beat markdown -- and says no
-  when they don't. Clipboard exports, markdown as source of truth.
+  when they don't. Starter templates, a build-time diagram pipeline
+  (graphviz / d2 / mermaid), clipboard exports, markdown as source of
+  truth.
 - **[parallax](skills/parallax/SKILL.md)** -- Multi-perspective decision
   protocol. Frame -> spread -> commit. Forces genuinely different alternatives
   before choosing. Trap detection as a first-class operation.

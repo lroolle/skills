@@ -8,7 +8,8 @@ description: >-
   Trigger on: "make an HTML file", "HTML artifact", "make it
   visual", "make this interactive", /htmlize, any request for a
   plan, spec, report, explainer, comparison, code review writeup,
-  incident report, slide deck, diagram, or one-off editor; and any
+  incident report, slide deck, flowchart, architecture diagram,
+  mermaid or graphviz diagram, or one-off editor; and any
   deliverable whose markdown equivalent would run past ~100 lines.
   Also trigger when the user shows an HTML deliverable (a report,
   plan, or deck -- not a product UI) that looks like generic AI
@@ -92,7 +93,9 @@ with it first.
 
 Layout guidance for every shape is in
 [patterns.md](references/patterns.md); editors additionally
-follow [export.md](references/export.md).
+follow [export.md](references/export.md). Diagrams past a
+handful of nodes are rendered from a diagram language, not
+hand-drawn -- [diagrams.md](references/diagrams.md).
 
 One artifact, one job. A request that spans jobs -- a spec that
 needs design mockups and a sequence diagram -- composes those
@@ -101,8 +104,15 @@ the job sentence, they are padding; cut them.
 
 ### Step 3 -- Build
 
-Read [style.md](references/style.md) before writing CSS. The
-rules every artifact must satisfy:
+Start from the matching template in
+[assets/templates/](assets/templates/): `document.html` for
+plans, reports, reviews, and explainers; `tool.html` for
+editors; `deck.html` for presentations. The templates are the
+baseline made executable -- palette, dark mode, print handlers,
+TOC builder, and export wiring already pass Check. Replace every
+`SLOT:` marker; one left visible means the artifact shipped
+unfinished. Read [style.md](references/style.md) before writing
+any CSS beyond them. The rules every artifact must satisfy:
 
 1. **Single self-contained `.html` file.** Inline CSS and JS. No
    build step. A CDN reference is a dependency on someone else's
@@ -166,7 +176,9 @@ one row per violation found: Before (the offending code), After
 | Editor with no export | Add copy-as-markdown/JSON/diff button | An editor without export is a dead end |
 | `navigator.clipboard` with no fallback | Textarea + `execCommand` fallback | Rejects in sandboxed iframes and unfocused documents |
 | SVG `<text>` overflowing its shape | Size shape to label, or `<foreignObject>` | SVG text never wraps; it collides silently |
-| Lorem ipsum or placeholder rows | Pre-populate from the task data | The user already provided the real data |
+| Hand-drawn SVG diagram past ~8 nodes | Render from `.dot`/`.mmd` source per diagrams.md | Layout is computation; engines route edges, models don't |
+| Diagram illegible when the OS theme flips | Remap palette hexes to CSS variables | Rendered SVGs carry light-palette colors |
+| Lorem ipsum, placeholder rows, or a visible `SLOT:` | Pre-populate from the task data | The user already provided the real data; SLOTs self-flag unfinished work |
 | No viewport meta, breaks under 700px | Add meta, collapse to one column | Artifacts get opened on phones |
 | Light-only or screen-only | Dark palette + print styles | Specs get printed; phones run dark mode |
 | Durable record exists only in HTML | Write the markdown source, HTML as view | Git diffs markdown; HTML is a rendering |
@@ -244,5 +256,11 @@ Review mode:
 |---|---|
 | [patterns.md](references/patterns.md) | Building any artifact -- per-shape layout guidance |
 | [style.md](references/style.md) | Writing CSS -- baseline, palette, anti-slop list |
+| [diagrams.md](references/diagrams.md) | The artifact includes a flowchart, architecture map, or sequence diagram |
 | [export.md](references/export.md) | The artifact is interactive or affects durable docs |
 | [prior-art.md](references/prior-art.md) | Understanding the lineage and design choices |
+
+Bundled tooling: [assets/templates/](assets/templates/) holds the
+three starting points; `scripts/render-diagram.sh` renders
+`.dot`/`.d2`/`.mmd` sources to inline-ready SVG with whatever
+engine is installed.
