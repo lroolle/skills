@@ -11,3 +11,7 @@ node_modules/
 *-workspace/
 dist/
 *.skill
+
+# third-party skills installed for reference -- never commit
+.agents/
+skills-lock.json
