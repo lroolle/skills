@@ -1,37 +1,44 @@
 ---
 name: skill-name
-description: >
-  What this skill does and when to use it. Be specific about trigger
-  phrases and contexts. Claude undertriggers -- make the description
-  pushy enough that it fires on adjacent situations too.
+description: >-
+  What this skill does, leading word first. Then one trigger per
+  branch -- each genuinely distinct situation that should fire it,
+  listed once, no synonym piles. If a trigger collides with a
+  sibling skill, route it: "X is other-skill's job."
 ---
 
 # Skill Name
 
-What this skill does in one paragraph.
+What this skill does and why it exists, in one paragraph. If there
+is a one-line test for whether the output is good, state it here.
 
-## When to use
+## Gate
 
-- Trigger conditions
-- Adjacent situations that should also trigger
-
-## When NOT to use
-
-- Boundary conditions (what looks similar but should not trigger)
+Open by sizing the task. When should the agent say "no" or "not
+this heavy"? A table mapping task weight to protocol depth beats
+running the full ceremony on a typo fix.
 
 ## Process
 
-1. Step one
-2. Step two
-3. Step three
+1. Phase one. End on a completion criterion the agent can check:
+   done vs not-done must be decidable, exhaustive where it matters
+   ("every X accounted for", not "handle X").
+2. Phase two. Explain *why* behind any rule the model might
+   rationalize away -- reasons adapt, bare MUSTs rot.
+3. Check. A rubric of concrete, smashable defects. A check the
+   agent can't fail is decoration.
 
 ## Anti-patterns
 
-- Things the agent will get wrong without explicit guidance
+Named failure modes for diagnosis (reference, not steering).
+In the process itself, steer positive: state the target behavior
+instead of prohibiting the failure.
 
-## Usage
+## References
 
-```
-/skill-name              # default invocation
-/skill-name topic        # with explicit topic
-```
+| Reference | When to load |
+|---|---|
+| references/example.md | Only some runs need it -- say which |
+
+Inline what every run needs; disclose what only some branches
+reach. The pointer's wording decides whether it gets loaded.
