@@ -6,6 +6,7 @@
     "./skills/htmlize",
     "./skills/parallax",
     "./skills/skillize",
-    "./skills/skillbun"
+    "./skills/skillbun",
+    "./skills/goldengoal"
   ]
 }

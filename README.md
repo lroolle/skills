@@ -100,6 +100,23 @@ conversation, classifies corrections by durability (permanent rule vs one-off
 fix), extracts the repeatable pattern, and drafts a SKILL.md. The workflow is
 preserved, not just the output.
 
+### The goal that drifts
+
+You set `/goal` and the agent runs for an hour -- then you discover it
+built the wrong thing. The goal was vague, the scope was open-ended, the
+verification was "looks good." The agent filled every ambiguity gap with
+its own assumptions.
+
+**goldengoal** shapes fuzzy intent into a falsifiable engineering
+contract before execution starts. Five contract gates -- outcome,
+evidence, boundary, stop rules, pause conditions -- plus a pre-mortem
+for complex work. Two modes: compose (walk through problem, outcome,
+scope, context, contract) and sharpen (engine-test an existing draft).
+Calibrates protocol weight to task complexity -- a typo fix gets three
+lines, an architecture change gets full scope and stop rules. Produces
+two artifacts: a goal brief (full spec) and a `/goal` condition (the
+evaluator's exit gate).
+
 ### Skills that can't travel alone
 
 You build a skill that depends on another skill's scripts. You share the
@@ -129,6 +146,10 @@ with independently installed copies, and packages everything into a single
 - **[parallax](skills/parallax/SKILL.md)** -- Multi-perspective decision
   protocol. Frame -> spread -> commit. Forces genuinely different alternatives
   before choosing. Trap detection as a first-class operation.
+- **[goldengoal](skills/goldengoal/SKILL.md)** -- Goal engineering
+  protocol. Compose (intent -> contract) or sharpen (engine-test an
+  existing draft). Five contract gates, pre-mortem, iteration policy.
+  Produces goal brief + /goal condition.
 - **[skillize](skills/skillize/SKILL.md)** -- Session-to-skill crystallizer.
   Extracts repeatable workflows from agent sessions, classifies corrections,
   drafts SKILL.md with references. Optional eval pipeline.
@@ -150,7 +171,8 @@ with independently installed copies, and packages everything into a single
 │   ├── htmlize/
 │   ├── parallax/
 │   ├── skillize/
-│   └── skillbun/
+│   ├── skillbun/
+│   └── goldengoal/
 └── template/                 # starter SKILL.md
     └── SKILL.md
 ```
