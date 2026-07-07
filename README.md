@@ -117,6 +117,24 @@ lines, an architecture change gets full scope and stop rules. Produces
 two artifacts: a goal brief (full spec) and a `/goal` condition (the
 evaluator's exit gate).
 
+### The book you read but never use
+
+You read a methodology book, highlight half of it, and a year
+later make the same decisions you would have made anyway. The
+knowledge stayed at "I've read it" -- it never activates when an
+agent is actually working.
+
+**distill** turns a knowledge source -- book, transcript, course,
+doc set -- into the few skills it actually earns. Strict yield:
+every candidate unit must pass four gates (grounded in 2+
+independent passages, predictive beyond the source's own examples,
+non-obvious to a smart generalist, and behavioral -- it changes
+what an agent does, checkably). Most sources earn 0-3 skills; the
+rest becomes an honest digest that says what didn't make it and
+why. Verification gates adapted from
+[cangjie-skill](https://github.com/kangarooking/cangjie-skill)
+(MIT), rebuilt around this collection's gate-first doctrine.
+
 ### Skills that can't travel alone
 
 You build a skill that depends on another skill's scripts. You share the
@@ -153,6 +171,10 @@ with independently installed copies, and packages everything into a single
 - **[skillize](skills/skillize/SKILL.md)** -- Session-to-skill crystallizer.
   Extracts repeatable workflows from agent sessions, classifies corrections,
   drafts SKILL.md with references. Optional eval pipeline.
+- **[distill](skills/distill/SKILL.md)** -- Source-to-skills
+  distiller. Gate -> survey -> hunt -> earn -> shape -> prove.
+  Four verification gates, strict yield, digest as first-class
+  residue. Books, transcripts, courses, doc sets.
 - **[skillbun](skills/skillbun/SKILL.md)** -- Skill bundler. Resolves
   dependencies, renames to avoid collisions, packages into `.skill` archives.
 
@@ -172,7 +194,8 @@ with independently installed copies, and packages everything into a single
 │   ├── parallax/
 │   ├── skillize/
 │   ├── skillbun/
-│   └── goldengoal/
+│   ├── goldengoal/
+│   └── distill/
 └── template/                 # starter SKILL.md
     └── SKILL.md
 ```

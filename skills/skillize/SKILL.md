@@ -8,7 +8,8 @@ description: >-
   workflow just performed captured for reuse ("skillize this", "turn
   this into a skill"); or they notice a recurring pattern ("I keep
   doing this same thing"). Creating a skill from scratch with no
-  session behind it is skill-creator's job.
+  session behind it is skill-creator's job; distilling a book,
+  transcript, or doc set into skills is distill's.
 ---
 
 # /skillize -- Session to Skill
