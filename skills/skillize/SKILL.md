@@ -1,19 +1,14 @@
 ---
 name: skillize
 description: >-
-  Crystallize a session's workflow into a reusable Claude Code skill.
-  Reconstructs what happened, extracts the repeatable pattern, drafts
-  SKILL.md with references, then optionally runs eval/optimize via
-  skill-creator. Use when: the user just completed a multi-step
-  workflow and wants to capture it as a skill for future reuse.
-  Trigger on: "turn this into a skill", "skillize this", "make a
-  skill from what we just did", "capture this workflow", "save this
-  as a skill", "I want to reuse this process", "freeze this into a
-  skill", /skillize. Also trigger when the user says "I keep doing
-  this same thing" or "we should automate this pattern" or asks to
-  package a session into something reusable. Do NOT trigger for
-  creating skills from scratch with no prior session work -- that
-  is skill-creator's job.
+  Crystallize a session's workflow into a reusable agent skill:
+  survey what happened, classify corrections by durability, extract
+  the repeatable pattern, draft SKILL.md with references, optionally
+  eval via skill-creator. Fires on two branches: the user wants the
+  workflow just performed captured for reuse ("skillize this", "turn
+  this into a skill"); or they notice a recurring pattern ("I keep
+  doing this same thing"). Creating a skill from scratch with no
+  session behind it is skill-creator's job.
 ---
 
 # /skillize -- Session to Skill

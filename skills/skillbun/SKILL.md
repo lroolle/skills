@@ -1,18 +1,12 @@
 ---
 name: skillbun
 description: >-
-  Bundle agent skills with their dependencies into a distributable
-  .skill archive. Resolves inter-skill dependencies, renames to
-  avoid collisions, validates, and produces a .skill (zip) or .zip
-  bundle. Use when: packaging skills for sharing, creating a
-  distributable skill collection, bundling a skill with its deps,
-  preparing skills for a new machine or teammate. Trigger on:
-  "bundle this skill", "package skills for sharing", "create a
-  skill bundle", "make this skill distributable", "pack these
-  skills together", /skillbun, "share this skill with deps",
-  "export skill collection", "skill archive", "rename and bundle".
-  Do NOT trigger for creating or editing individual skills -- that
-  is skill-creator's job.
+  Bundle agent skills into a distributable .skill archive: resolve
+  inter-skill dependencies, rename to avoid collisions, validate,
+  zip. Fires when the user wants to share or export skills, package
+  a skill together with its dependencies, or prepare a collection
+  for another machine or teammate. Creating or editing the skills
+  themselves is skill-creator's job.
 ---
 
 # /skillbun -- Skill Bundler

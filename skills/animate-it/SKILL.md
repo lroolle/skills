@@ -1,20 +1,15 @@
 ---
 name: animate-it
 description: >-
-  Animation implementation protocol for web interfaces. Takes a
-  component from "should this animate?" through easing, duration,
-  and implementation to production-ready code. Also reviews existing
-  animation code for quality problems. For CSS transitions,
-  keyframes, Motion (Framer Motion), springs, and WAAPI. Trigger on:
-  "add animation to this", "animate this component", "this animation
-  feels wrong", "make this transition smoother", "review my
-  animations", "what easing should I use", "should this animate",
-  /animate-it, or any request involving motion, transitions, easing,
-  springs, spring animation, CSS transition, or animation
-  implementation. Also trigger when the user pastes CSS/JSX with
-  animation code that could be improved. Do NOT
-  trigger for animation design decisions (that's kiln's motion.md)
-  or static styling without motion.
+  Animation implementation protocol for web interfaces: easing,
+  duration, springs, CSS transitions, keyframes, Motion (Framer
+  Motion), WAAPI. Fires on three branches: adding motion to a
+  component ("animate this", "should this animate?"); diagnosing
+  motion that feels wrong ("make this transition smoother", "what
+  easing should I use"); and reviewing pasted animation code.
+  Deciding what should move and why is kiln's job (motion.md);
+  this skill makes it move correctly. Static styling without
+  motion is kiln's too.
 ---
 
 # animate-it
@@ -92,6 +87,7 @@ Use custom curves. Built-in CSS easings are too weak:
 --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
 --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
 --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+--ease-subtle: cubic-bezier(0.25, 0.1, 0.25, 1);
 ```
 
 Never use ease-in for UI animations. It starts slow, which makes

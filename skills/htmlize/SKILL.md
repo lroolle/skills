@@ -2,20 +2,15 @@
 name: htmlize
 description: >-
   HTML artifact protocol for agent deliverables. Decides whether a
-  deliverable should be a self-contained HTML file instead of
-  markdown, picks the artifact shape, builds it against a craft
-  baseline, and reviews existing artifacts for quality problems.
-  Trigger on: "make an HTML file", "HTML artifact", "make it
-  visual", "make this interactive", /htmlize, any request for a
-  plan, spec, report, explainer, comparison, code review writeup,
-  incident report, slide deck, flowchart, architecture diagram,
-  mermaid or graphviz diagram, or one-off editor; and any
-  deliverable whose markdown equivalent would run past ~100 lines.
-  Also trigger when the user shows an HTML deliverable (a report,
-  plan, or deck -- not a product UI) that looks like generic AI
-  output and wants it improved. Do NOT trigger for production
-  frontend code, web app features, or hand-maintained docs like
-  README and CONTRIBUTING.
+  deliverable beats markdown, picks the artifact shape, builds a
+  self-contained file against a craft baseline, and reviews existing
+  artifacts. Fires on three branches: an explicit ask for an HTML,
+  visual, or interactive deliverable; producing any plan, report,
+  explainer, comparison, deck, or diagram (mermaid / graphviz / d2)
+  whose markdown equivalent would run past ~100 lines; and improving
+  an HTML deliverable that looks like generic AI output. Production
+  frontend code and hand-maintained docs (README, CONTRIBUTING) are
+  not artifacts -- build those directly.
 ---
 
 # htmlize

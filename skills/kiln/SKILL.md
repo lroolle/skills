@@ -1,19 +1,15 @@
 ---
 name: kiln
 description: >-
-  Precision UX design instrument with layered architecture: perceptual
-  principles, composable patterns, parameterized material palettes, and page
-  templates. Generates AND diagnoses interfaces. Anti-AI-slop detection with
-  permanent structural rules and dated trend bans. Use when: designing,
-  redesigning, styling, auditing, or critiquing any frontend interface.
-  Trigger on: design, redesign, UI, UX, layout, typography, color, font,
-  spacing, responsive, dark mode, accessibility, audit, review, critique,
-  polish, style, CSS, frontend appearance, visual hierarchy, information
-  architecture, editorial design, dashboard design, landing page, component
-  styling, animation, motion, micro-interaction, design system, tokens, or
-  when output looks generic or AI-generated. Also trigger when the user says
-  make it look better, this looks like AI made it, needs more taste, fix the
-  design, it feels generic, or make it distinctive.
+  Precision UX design instrument: perceptual principles, composable
+  patterns, parameterized material kits, anti-AI-slop detection.
+  Fires on three branches: designing or restyling any frontend
+  surface (layout, typography, color, spacing, responsive, dark
+  mode, accessibility); auditing or critiquing an existing
+  interface; and rescuing output that looks generic or AI-made
+  ("make it look better", "needs more taste"). Animation design
+  decisions live here (motion.md); implementing the animation is
+  animate-it's job.
 ---
 
 # Kiln

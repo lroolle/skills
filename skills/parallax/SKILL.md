@@ -1,16 +1,14 @@
 ---
 name: parallax
 description: >-
-  Multi-perspective decision protocol. Before committing to an approach,
-  generate genuinely different alternatives, evaluate trade-offs, and
-  surface traps. For architecture decisions, naming, strategy, and
-  debugging when the first idea isn't obviously right. Trigger on:
-  "I'm stuck", "what approaches could we take", "the obvious answer
-  feels wrong", "help me decide between", "what are our options",
-  /parallax, or any open-ended architecture, naming, or strategy
-  question where the cost of the obvious answer being wrong is high.
-  Do NOT trigger for factual lookups, syntax, bugs with known root
-  cause, or questions with one canonical answer.
+  Multi-perspective decision protocol: frame the decision, spread
+  genuinely different approaches, surface traps, commit with
+  trade-offs. Fires on decisions where the obvious answer being
+  wrong is expensive: architecture and design choices, naming,
+  strategy, debugging with unknown root cause after the first
+  hypothesis failed, and whenever the user is stuck or asks what
+  the options are. Factual lookups, syntax, and questions with one
+  canonical answer don't need spread -- answer those directly.
 ---
 
 # Parallax
