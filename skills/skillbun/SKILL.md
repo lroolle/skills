@@ -20,16 +20,8 @@ resolve deps, rename to avoid collisions, validate, bundle, ship.
 
 ### 1. Identify targets
 
-Accept one or more skill paths or names:
-
-```
-/skillbun skillize                    # single skill + deps
-/skillbun skillize kiln               # multiple skills + deps
-/skillbun --all                       # everything in a skill root
-/skillbun --from ./my-skills/         # from a specific directory
-```
-
-For each target, verify SKILL.md exists and validate: frontmatter
+Accept one or more skill paths or names (full flag set under
+Usage). For each target, verify SKILL.md exists and validate: frontmatter
 has `name` and `description`, name matches directory, kebab-case.
 
 ### 2. Resolve dependencies

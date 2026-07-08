@@ -103,10 +103,22 @@ skills the agent must discover on its own.
 ## Sources and IP
 
 Ideas absorbed from other skill collections are rewritten in our own
-voice and attributed in README or the skill body -- never pasted.
-MIT/Apache sources are citable with attribution; unlicensed sources
-contribute ideas only. Third-party skills installed for study live in
-`.agents/` (gitignored) and are never committed.
+voice -- never pasted. MIT/Apache sources are citable with
+attribution; unlicensed sources contribute ideas only. Third-party
+skills installed for study live in `.agents/` (gitignored) and are
+never committed.
+
+**Routes vs credit.** An external repo may appear in operational
+text only as a route ("for maximum divergence at 5-10x cost, use
+ADHD directly") -- routing changes agent behavior. Credit does not:
+no source names, "adapted from", dates, or star counts inside steps,
+rules, or reference material the agent works from. Credit lives in
+exactly two human-facing places: the repo README (the story) and one
+compact Lineage footer at the bottom of SKILL.md (skills travel as
+single folders; the footer travels with them). A long lineage story
+can be a disclosed reference (htmlize's prior-art.md) behind a
+pointer no operational path loads. Direct quotes are the exception
+-- a quote keeps its source beside it or becomes a paraphrase.
 
 Craft vocabulary (predictability, leading words, no-op, sediment,
 one-trigger-per-branch) draws on Matt Pocock's

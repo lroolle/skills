@@ -58,7 +58,7 @@ Go HTML when any of these hold:
 | The reader tunes, toggles, drags, or filters | Doing beats describing |
 | The document needs navigation: tabs, collapse, jump links | A long file gets scrolled past; a navigable one gets used |
 | It will travel beyond this conversation | A link gets opened; an attached .md gets archived unread |
-| The markdown version would pass ~100 lines | Past that, markdown stops being read at all -- the founding observation of this approach |
+| The markdown version would pass ~100 lines | Past that, markdown stops being read at all |
 | The data needs a purpose-built micro-tool | One throwaway page beats a paragraph describing the edits |
 
 Tie-break on the document's lifespan in the reader's hands:
@@ -124,8 +124,7 @@ any CSS beyond them. The rules every artifact must satisfy:
 4. **Calm typography, color that works.** Serif body for
    documents, sans for tools. 60-75ch line length. Every color
    carries meaning -- severity, status, category. A color that is
-   only mood gets removed. The full baseline lives in
-   [style.md](references/style.md).
+   only mood gets removed.
 5. **Semantic HTML.** Code in `<pre><code>`, tabular data in
    `<table>`, diagrams as inline `<svg>` with real elements. The
    reader should be able to select and copy any value on the page.

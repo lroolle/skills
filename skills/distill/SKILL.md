@@ -28,23 +28,9 @@ differently in a nameable situation -- and could you check?**
 Knowledge that only makes answers sound wiser is reading material,
 not a skill.
 
-## When to invoke
-
-**Use when:**
-
-- The user has a source (book text, video/podcast transcript,
-  course, documentation set, post series) and wants skills from it
-- The user asks whether a source is worth distilling
-- A prior distillation produced skills that never fire, and the
-  user wants them re-earned or retired
-
-**Route elsewhere:**
-
-- The workflow to capture happened in this session -> skillize
-- No source, no session -- skill from scratch -> skill-creator
-- The user wants a summary, reading notes, or a navigable
-  reference wiki -> write that deliverable directly; skills are
-  for behavior, and none of those change an agent's
+Beyond the description's branches, distill also fires when a
+prior distillation produced skills that never fire and the user
+wants them re-earned or retired.
 
 ## Ground rules
 
@@ -144,8 +130,7 @@ Run every candidate through four tests; all four must pass.
 
 Track the yield rate. Under ~10% on a method-dense source means
 the hunt was shallow -- re-sweep. Over ~60% means the gates went
-soft -- re-run them colder. (Bands adapted from cangjie-skill's
-pass-rate telemetry.)
+soft -- re-run them colder.
 
 Present survivors and casualties to the user with one-line
 reasons: "these N earn skills; these M go to the digest -- rescue
@@ -158,8 +143,8 @@ Each earned unit becomes a skill directory built to this
 collection's doctrine -- gate-first body, one-trigger-per-branch
 description, completion criteria, positive steering. Load
 [shaping.md](references/shaping.md) for the construction recipe:
-section-by-section mapping from unit to SKILL.md, frontmatter
-fields for source attribution, and worked examples of trigger
+section-by-section mapping from unit to SKILL.md, lineage-footer
+placement for source credit, and worked examples of trigger
 descriptions built from language signals.
 
 The two decisions that make or break each skill:
@@ -174,7 +159,9 @@ The two decisions that make or break each skill:
   skill without a boundary gets invoked everywhere and disappoints.
 
 Name skills by the move, not the source: `inversion-check`, not
-`munger-chapter-3`. The source lives in frontmatter attribution.
+`munger-chapter-3`. The source lives in the lineage footer, never
+inside the steps -- credit is for the reader; the agent needs the
+move.
 
 ## Prove
 
@@ -229,12 +216,8 @@ casualty failed, and where the skills were installed.
 
 ## Lineage
 
-The verification gates adapt cangjie-skill's triple-verify
-(cross-domain, predictive power, exclusivity) and its
-future-trigger insight -- descriptions from situations, not
-summaries (MIT, github.com/kangarooking/cangjie-skill). The
-behavioral gate, strict-yield posture, digest-as-first-class
-output, and single-context hunt are this collection's doctrine
-applied to their pipeline. Survey's critical pass descends from
-Adler's *How to Read a Book*; the R/I/A scaffold in shaping.md
-traces to Zhao Zhou's bookmark method via cangjie.
+Verification gates and yield bands adapted from
+[cangjie-skill](https://github.com/kangarooking/cangjie-skill)
+(MIT); the critical-pass survey descends from Adler's *How to
+Read a Book*. The behavioral gate, strict yield, and
+single-context hunt are this collection's doctrine.

@@ -27,24 +27,6 @@ contract an agent can be judged against.
 The test: can someone (or something) evaluate the goal's outcome
 without asking you what you meant?
 
-## When to invoke
-
-**Use when:**
-
-- Starting a coding session that needs upfront clarity
-- Setting up /goal or /loop for an autonomous run
-- You have fuzzy intent but can't articulate the done condition
-- You have a draft goal and want to check its quality
-- Delegating a complex task to an agent or teammate
-- A previous goal/loop drifted, crept in scope, or produced wrong output
-- The domain is unfamiliar and you need a discovery-first goal
-
-**Skip when:**
-
-- The task is self-evident ("fix the typo on line 42")
-- You're mid-execution with clear direction
-- Quick factual lookup, syntax, "how do I X"
-
 ## Mode selection
 
 If the user provides text that looks like a goal (has an outcome,
@@ -86,15 +68,10 @@ getting here, but the gates are non-negotiable.
 | **Stop rules** | When should the agent halt and ask? | Agent drifts on ambiguity or makes risky decisions silently |
 | **Pause conditions** | When is the agent blocked, not stuck? | Agent grinds on blocked work (missing credentials, human decision, external dependency) instead of surfacing the blocker |
 
-The distinction between stop rules and pause conditions matters:
-- **Stop rules** handle ambiguity -- the agent doesn't know which
-  path is right. "Stop and ask if the change requires a schema migration."
-- **Pause conditions** handle blockers -- the agent can't proceed
-  regardless of knowledge. "Pause if credentials are missing, a human
-  decision is needed, or the CI pipeline is broken."
-
-Without both, agents either drift endlessly (no stop rules) or
-grind on impossible tasks (no pause conditions).
+Stop rules handle ambiguity (the agent doesn't know which path is
+right); pause conditions handle blockers (the agent can't proceed
+regardless of knowledge). Contract section 5 has worked examples
+of each.
 
 ## Compose mode
 
@@ -216,12 +193,8 @@ After drafting the goal, ask one question:
 
 > "What is the most likely way this goal fails?"
 
-Common failure modes:
-- Agent builds the wrong thing (outcome was ambiguous)
-- Agent expands scope (boundary was missing)
-- Agent can't verify (evidence was hand-wave)
-- Agent breaks adjacent code (frozen interfaces unnamed)
-- Agent grinds on a blocker (pause condition missing)
+Walk the five gates' failure-mode column against this specific
+goal and name the likeliest failures.
 
 For each identified failure mode, derive one constraint -- a
 non-goal, a stop rule, or a pause condition. Add it to the
@@ -278,8 +251,7 @@ VERIFY: [how to check -- test command, manual step]
 ```
 
 Three lines. The contract gates still apply in your head but
-don't need to be written down. If the task is truly simple,
-stop rules, pause conditions, and iteration policy are overkill.
+don't need to be written down.
 
 ## After shaping
 

@@ -37,10 +37,8 @@ Should this animate at all?
 | Occasional (modals, drawers, toasts) | Standard animation |
 | Rare / first-time (onboarding, celebrations) | Can add delight |
 
-Don't add entrance/exit animations to keyboard-initiated actions.
-They repeat hundreds of times a day and animation makes them feel
-slow. Focus-ring transitions and highlight movement at <=100ms are
-fine -- those are feedback, not ceremony.
+The exception at the top rows: focus-ring transitions and highlight
+movement at <=100ms are fine -- those are feedback, not ceremony.
 
 If the answer is "don't animate," stop here. Saying no is the most
 valuable thing this skill does.
@@ -240,9 +238,8 @@ to prevent false positives on touch devices.
 - Animate ONLY transform and opacity. Everything else triggers layout.
 - CSS variables on a parent recalculate all children. Update
   `transform` directly on the element for drag interactions.
-- Older Framer Motion (v10-) used requestAnimationFrame for `x`/`y`
-  shorthand. Motion v11+ may use WAAPI. When in doubt, use the full
-  `transform` string to guarantee GPU acceleration.
+- Motion's `x`/`y` shorthand does not GPU-composite on every
+  version. When in doubt, use the full `transform` string.
 - CSS animations beat JS under load. When the browser is busy, JS
   animations (requestAnimationFrame) drop frames. CSS stays smooth.
 - `will-change` on actively animating elements only. Remove after.
@@ -309,5 +306,5 @@ For review mode:
 | File | Load when |
 |---|---|
 | [patterns.md](references/patterns.md) | Implementing a specific animation type (entrance, gesture, scroll, etc.) |
-| [vocabulary.md](references/vocabulary.md) | User uses an animation term you need to look up; includes production constants from sonner/vaul |
+| [vocabulary.md](references/vocabulary.md) | User uses an animation term you need to look up; includes production duration/easing constants |
 | [easing-curves.md](references/easing-curves.md) | Choosing or customizing easing curves and spring configs |

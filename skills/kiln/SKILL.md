@@ -34,17 +34,6 @@ Four layers, ordered by durability:
 Cross-cutting: anti-patterns split into **permanent** (below) and
 **zeitgeist** ([versioned, dated](references/zeitgeist.md)).
 
-## Setup
-
-1. Identify the target surface (page, component, app shell).
-2. Select a material kit or describe the desired aesthetic.
-   If none specified, ask. See kit table below.
-3. Load [zeitgeist.md](references/zeitgeist.md) to check current bans.
-4. Load [patterns.md](references/patterns.md) before structural work.
-5. Load [motion.md](references/motion.md) if handling animation.
-6. Load [adaptation.md](references/adaptation.md) if handling responsive,
-   dark mode, a11y, or CJK.
-
 ## L0: Principles
 
 Human perception and cognition. These constrain every downstream decision.
@@ -186,7 +175,8 @@ composition.
 
 ### craft
 
-1. Confirm target surface and material kit.
+1. Confirm target surface (page, component, app shell) and material
+   kit. If no kit specified and no aesthetic described, ask.
 2. Load [patterns.md](references/patterns.md) for structural decisions.
 3. Load [zeitgeist.md](references/zeitgeist.md) for current saturation bans.
 4. Load [motion.md](references/motion.md) if animations needed.

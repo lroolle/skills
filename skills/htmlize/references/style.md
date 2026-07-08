@@ -28,9 +28,9 @@ document (feels like a config screen).
 
 ## Baseline CSS
 
-Adapted from dogum/html-artifacts' baseline (Apache-2.0), with a
-blue accent replacing its violet (which its own anti-slop rules
-ban for decoration) and dark-mode status colors added.
+The accent is blue, not violet — violet decoration is the first
+thing the anti-slop check smashes. Dark-mode status colors
+included.
 
 ```css
 :root {

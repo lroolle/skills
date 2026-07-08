@@ -74,7 +74,7 @@ invoked everywhere the source's vocabulary appears, then
 disappoints -- boundary is what makes the author's method safe
 in hands that never read the book.
 
-## 5. Frontmatter
+## 5. Frontmatter and lineage
 
 ```yaml
 ---
@@ -82,12 +82,17 @@ name: <move-slug>            # the move, not the source
 description: >-
   <assembled from language signals, one trigger per branch,
   sibling routing included>
-source: "<Title>, <Author> (<year>) -- <chapter/timestamp>"
 ---
 ```
 
-`source` keeps attribution honest and lets a reader trace the
-move back. Multiple locations: cite the two strongest.
+Credit the source in a compact **Lineage footer** -- the last
+section of SKILL.md, 1-3 lines: title, author, location of the
+two strongest appearances, license if the source is a repo.
+Skills travel as single folders, so the footer travels with them.
+Nowhere else: no "the author says" inside steps, no dates or
+popularity counts anywhere -- credit is for the reader; the agent
+needs the move. (The one exception is a direct quote, which keeps
+its location beside it.)
 
 ## 6. Self-check before Prove
 
@@ -97,4 +102,5 @@ move back. Multiple locations: cite the two strongest.
 - [ ] Description built from language signals, not chapter summary
 - [ ] Sibling routing names the tell, not just the neighbor
 - [ ] Boundary carries at least one author warning or blind spot
+- [ ] Credit sits only in the Lineage footer, never inside steps
 - [ ] The skill changes what an agent does, not how it sounds

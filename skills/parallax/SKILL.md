@@ -22,28 +22,12 @@ This skill forces genuine spread before commitment: frame the decision,
 generate approaches that differ on fundamental assumptions, surface the
 traps, then commit to one with explicit trade-offs.
 
-## When to invoke
+## Gate
 
-**Use when:**
-
-- Architecture or design decision that's expensive to reverse
-- Naming -- products, APIs, features, modules
-- Strategy -- what to build, how to approach
-- Debugging with unknown root cause after first hypothesis failed
-- User says "I'm stuck," "the obvious answer feels wrong," or
-  "what approaches could we take"
-- Explicit `/parallax <problem>`
-
-**Skip when:**
-
-- Factual lookup, syntax, "how do I X"
-- Bug with known root cause
-- Question with one canonical answer
-- User says "quick," "just," "standard," "one-line"
-- Inner-loop work, per-keystroke edits
-
-When in doubt, answer directly and offer: *"Want me to run /parallax
-on this for a wider look?"*
+Two skip signals beyond the description's routing: the user saying
+"quick," "just," "standard," or "one-line"; and inner-loop
+per-keystroke work. When in doubt, answer directly and offer:
+*"Want me to run /parallax on this for a wider look?"*
 
 ## The protocol
 
@@ -118,20 +102,15 @@ for anything.
    How to find traps:
    - Name the assumption that makes the approach work, then imagine
      the realistic scenario where it fails.
-   - Check for hidden costs that appear only at scale, under real
-     concurrency, or after six months of maintenance.
+   - Check for hidden costs -- O(n^2), hidden coupling -- that
+     appear only at scale, under real concurrency, or after six
+     months of maintenance.
    - Ask whether the approach solves the stated problem but creates
      a worse adjacent one.
    - Look for dependencies on team skills, infrastructure, or
      organizational willingness that isn't actually there.
    - Check whether the approach is attractive because it's novel
      rather than because it fits.
-
-   Common trap shapes:
-   - Looks simple but has hidden O(n^2) or hidden coupling
-   - Works in dev but breaks under real concurrency / load / failure
-   - Solves the stated problem but creates a worse adjacent one
-   - Requires a dependency or capability that isn't there
 
 3. **Pick.** State your recommendation and the runner-up. Say what the
    recommendation gives up -- the honest cost of the choice. If two
@@ -214,11 +193,6 @@ For maximum divergence breadth at 5-10x cost, use
 [ADHD](https://github.com/UditAkhourii/adhd) directly -- it spawns
 separate API calls under different cognitive frames with zero shared
 context, eliminating cross-branch anchoring by construction.
-
-Several lenses in the table above draw from ADHD's frame library.
-The concepts (adversarial thinking, beginner's mind, constraint
-removal) predate both skills, but ADHD's specific framings were a
-direct influence.
 
 ## Output shape
 

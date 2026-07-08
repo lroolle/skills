@@ -2,13 +2,11 @@
 
 Working definitions for terms that show up in animation requests,
 organized by the protocol's motion types. Each term gets what it
-is and how it is actually built; where a real production value
-exists, it is cited from Emil Kowalski's MIT-licensed libraries --
-[sonner](https://github.com/emilkowalski/sonner) (toasts) and
-[vaul](https://github.com/emilkowalski/vaul) (drawers). For
-interactive demos of these concepts, his
-[animations.dev/vocabulary](https://animations.dev/vocabulary) is
-the best single page on the web.
+is and how it is actually built; production values are cited from
+MIT-licensed [sonner](https://github.com/emilkowalski/sonner)
+(toasts) and [vaul](https://github.com/emilkowalski/vaul)
+(drawers). Interactive demos:
+[animations.dev/vocabulary](https://animations.dev/vocabulary).
 
 ## Entrances and exits
 

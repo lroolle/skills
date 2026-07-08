@@ -146,14 +146,17 @@ understands the reasoning, it adapts to edge cases instead of
 following rigid rules off a cliff. If you find yourself writing
 ALWAYS or NEVER in caps, reframe as reasoning.
 
-**Description writing**: The description is the trigger mechanism.
-Claude undertriggers skills -- it needs explicit nudging. Include:
-- What the skill does
-- Explicit trigger phrases ("turn this into a skill", "skillize")
-- Adjacent situations to trigger on ("I keep doing this same thing")
-- Negative boundary (what NOT to trigger on)
-- Be pushy. "Use when the user mentions X, Y, or Z, even if they
-  don't explicitly name the skill" is better than a terse summary.
+**Description writing**: The description is the trigger mechanism,
+and it costs context on every turn whether the skill fires or not.
+Write it branch-form:
+- One trigger per genuinely distinct situation, phrased in the
+  words a user would type ("turn this into a skill", "I keep
+  doing this same thing") -- synonym piles restate one branch
+  and starve the others
+- Front-load the leading word users reach for
+- Where a trigger collides with an adjacent skill, route by name
+  ("creating from scratch is skill-creator's job") instead of
+  listing what not to trigger on
 
 ### Phase 4: Install draft
 
