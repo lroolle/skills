@@ -8,6 +8,7 @@
     "./skills/skillize",
     "./skills/skillbun",
     "./skills/goldengoal",
-    "./skills/distill"
+    "./skills/distill",
+    "./skills/impute"
   ]
 }

@@ -135,6 +135,25 @@ why. Verification gates adapted from
 [cangjie-skill](https://github.com/kangarooking/cangjie-skill)
 (MIT), rebuilt around this collection's gate-first doctrine.
 
+### The great work nobody sees
+
+You shipped something real. But the README opens with install
+instructions, the last release trails the commits by a year, and a
+scheduled job has been green-but-dead for weeks. Visitors spend 30
+seconds, impute neglect, and leave. The work was never the problem
+-- the surfaces were.
+
+**impute** packages real work so its quality is legible: audit the
+repo's surfaces in trust-damage order, renovate the README around
+proof (numbers scoped, reproduce commands shipped), instrument
+automations so green means alive, then -- only then -- tell people,
+leading with the reader's problem. Named for the third principle of
+the 1977 Apple Marketing Philosophy: people judge the work by its
+cover, so make the cover true. Distilled from a full-repo study of
+[headroom](https://github.com/headroomlabs-ai/headroom)'s public
+packaging (Apache-2.0) plus one first-party incident of a pipeline
+that lied green for three weeks.
+
 ### Skills that can't travel alone
 
 You build a skill that depends on another skill's scripts. You share the
@@ -175,6 +194,10 @@ with independently installed copies, and packages everything into a single
   distiller. Gate -> survey -> hunt -> earn -> shape -> prove.
   Four verification gates, strict yield, digest as first-class
   residue. Books, transcripts, courses, doc sets.
+- **[impute](skills/impute/SKILL.md)** -- Repo packaging and promotion
+  protocol. Audit -> renovate -> instrument -> tell, in trust-damage
+  order. README anatomy, honest numbers, agent-legible surfaces,
+  automation tripwires, groundskeeper sweeps.
 - **[skillbun](skills/skillbun/SKILL.md)** -- Skill bundler. Resolves
   dependencies, renames to avoid collisions, packages into `.skill` archives.
 
@@ -195,7 +218,8 @@ with independently installed copies, and packages everything into a single
 │   ├── skillize/
 │   ├── skillbun/
 │   ├── goldengoal/
-│   └── distill/
+│   ├── distill/
+│   └── impute/
 └── template/                 # starter SKILL.md
     └── SKILL.md
 ```
