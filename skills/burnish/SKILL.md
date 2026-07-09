@@ -1,34 +1,37 @@
 ---
-name: impute
+name: burnish
 description: >-
-  People impute the quality of the work from the quality of its
-  surfaces. Audit, renovate, instrument, and promote open-source
-  repos so real work reads as real in 30 seconds — and every claim
-  survives scrutiny. Fires on four branches: polishing or launching
-  a repo ("make this repo world-class", "fix the README", "prepare
-  for launch", "why does this look abandoned"); org-wide
-  housekeeping ("run housekeeping", "which repos are stale",
-  scheduled groundskeeper sweeps); outbound moments ("write the
-  release notes", "announce this", "make people care"); and
-  automation health ("set up a scheduled workflow", "why did nobody
-  notice this broke"). Fixing a single bug is just a fix; product
-  UI design is kiln's job; voice for one standalone document is a
-  writing task, not repo packaging.
+  Burnish a repo until the work gleams -- people impute the quality
+  of the work from the quality of its surfaces, so audit, renovate,
+  instrument, and promote open-source repos until real work reads
+  as real in 30 seconds and every claim survives scrutiny. Fires on
+  four branches: polishing or launching a repo ("make this repo
+  world-class", "fix the README", "prepare for launch", "why does
+  this look abandoned"); org-wide housekeeping ("run housekeeping",
+  "which repos are stale", scheduled groundskeeper sweeps); outbound
+  moments ("write the release notes", "announce this", "make people
+  care"); and automation health ("set up a scheduled workflow",
+  "why did nobody notice this broke"). Fixing a single bug is just
+  a fix; product UI design is kiln's job; voice for one standalone
+  document is a writing task, not repo packaging.
 ---
 
-# Impute
+# Burnish
 
-*Impute* is the third principle of the Apple Marketing Philosophy
-(Mike Markkula, 1977): "people DO judge a book by its cover."
-Present great work in a slipshod way and readers impute slipshod
-quality onto it; present it with care and they impute the care.
+Burnishing is polish by friction: press the tool against real
+metal until it gleams. It only works on substance -- friction
+against hollow plating wears straight through and shows the base
+underneath. That is this skill's physics, and why its beats run
+in order.
 
-A repo is a product whose UI is its README, whose uptime is its
-maintenance signals, and whose marketing is proof. Humans decide
-in ~30 seconds whether it is serious. Agents decide from llms.txt
-and topics. Adopters decide from whether claims survive scrutiny.
-This skill packages real work so all three impute what is
-actually true.
+The belief behind it: people impute the quality of the work from
+the quality of its surfaces -- "people DO judge a book by its
+cover" (Apple Marketing Philosophy, 1977). A repo is a product
+whose UI is its README, whose uptime is its maintenance signals,
+and whose marketing is proof. Humans decide in ~30 seconds
+whether it is serious. Agents decide from llms.txt and topics.
+Adopters decide from whether claims survive scrutiny. Burnish
+works the surfaces until all three read what is actually true.
 
 **The law, in order. Never invert it:**
 
@@ -48,7 +51,7 @@ Confirm the situation is repo packaging, maintenance, or
 promotion. Route away: a single bug fix is just a fix; UI or
 product design is kiln's job; the voice of one standalone
 document is a writing task, not repo packaging. If the repo's
-core does not work yet, say so and stop — this skill amplifies
+core does not work yet, say so and stop — burnish amplifies
 substance, it cannot replace it.
 
 Scale check before anything else: a 2-star repo and a 50k-star
@@ -61,13 +64,13 @@ Score the repo before touching it. Fifteen minutes, one pass:
 
 | Surface | Check |
 |---|---|
-| Identity | GitHub description states outcome + numbers, not category? Homepage set? Topics: 8-20 covering every discovery keyword a searcher would type? |
+| Identity | GitHub description states outcome + numbers, not category? Homepage set (docs site or Pages when one exists)? Topics: 8-20 covering every discovery keyword a searcher would type? |
 | README | Follows the anatomy? (references/readme-anatomy.md) Has a Proof section? A 60-second start that actually takes 60 seconds? |
 | Agent surface | llms.txt exists? Plugin/marketplace integration where the product warrants it? (references/agent-surface.md) |
 | Health files | LICENSE, SECURITY.md, CONTRIBUTING.md, issue/PR templates, CHANGELOG — present and non-boilerplate? (references/health-stack.md) |
 | Release hygiene | Tagged releases ≈ recent commits? Or does the repo ship daily but "release" never? |
 | Automation honesty | Any scheduled job green while producing nothing? Check the OUTCOME artifact (latest commit/PR/release/post), not the run status. (references/automation-tripwires.md) |
-| Drift | Renamed products still under old names? Dates/screenshots/counts stale? Branch count vs open PRs? Org/index pages current? |
+| Drift | Renamed products still under old names? Dates/screenshots/counts stale? Branch count vs open PRs? Org index, GitHub Pages, and docs sites current? |
 
 Output: gap list ranked by trust damage, each gap with an effort
 estimate — a dead link or a stale "© 2025" hurts more than a
@@ -185,5 +188,6 @@ For "run housekeeping" / scheduled sweeps across an org:
 
 README anatomy, honest numbers, and agent surface generalized from
 a study of [headroom](https://github.com/headroomlabs-ai/headroom)
-(Apache-2.0); tripwires from a first-party incident. Named for the
-third principle of the Apple Marketing Philosophy (Markkula, 1977).
+(Apache-2.0); tripwires from a first-party incident. The belief —
+surfaces make people impute the work's quality — is the third
+principle of the Apple Marketing Philosophy (Markkula, 1977).

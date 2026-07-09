@@ -1,15 +1,51 @@
-# Skills
+<div align="center">
 
-> Agent skills with opinions: design, motion, artifacts, decisions,
-> and the craft of making skills themselves.
+<pre>
+     _    _ _ _
+ ___| | _(_) | |___
+/ __| |/ / | | / __|
+\__ \   &lt;| | | \__ \
+|___/_|\_\_|_|_|___/
+</pre>
+
+**Nine small skills with strong opinions — and gates that say no.**
+
+design · motion · artifacts · decisions · goals · the craft of skills itself
 
 [![skills.sh](https://skills.sh/b/lroolle/skills)](https://skills.sh/lroolle/skills)
 [![license](https://img.shields.io/github/license/lroolle/skills)](LICENSE)
 [![spec](https://img.shields.io/badge/spec-agentskills.io-blue)](https://agentskills.io/specification)
 
-Small, composable skills that solve real problems I hit daily with Claude Code
-and Codex. Not a framework. Not a process. Just focused tools you can drop into
-any project and hack on.
+[Quickstart](#quickstart) · [The skills](#the-skills) · [Proof](#proof) · [Doctrine](CLAUDE.md) · [llms.txt](llms.txt)
+
+<sub>AI agents: fetch [llms.txt](llms.txt) — one line per skill, with raw links.</sub>
+
+</div>
+
+---
+
+Most agent output is competent and forgettable: the purple-gradient
+dashboard, the 300-line plan nobody reads, `transition: all`, the
+first reasonable answer polished until it ships. These skills exist
+to refuse that. Each one is a protocol that opens with a gate, and
+the gate's favorite word is no:
+
+```text
+> make this dashboard look better
+
+  kiln · gate: "AI tool -> Inter + purple gradient" is the first
+  training-data reflex. Refused. Firing broadsheet kit: serif
+  display, ruled 1px surfaces, 0.85 density...
+
+> should this shortcut animate?
+
+  animate-it · gate: keyboard-initiated, fires 200x/day.
+  No animation. Ever.
+```
+
+*Illustrative transcript; the refusals are verbatim from the
+skills' own rules. Sizing the task before spending your tokens is
+the product.*
 
 ## Quickstart
 
@@ -18,6 +54,14 @@ npx skills@latest add lroolle/skills
 ```
 
 Pick the skills you want and which agents to install them on.
+Then feel one work — say any of these:
+
+| Say | Fires |
+|---|---|
+| "audit this repo's README" | burnish |
+| "should this modal animate?" | animate-it |
+| "run /parallax on \<a decision you're stuck on\>" | parallax |
+| "turn this session into a skill" | skillize |
 
 <details><summary>Manual install</summary>
 
@@ -35,212 +79,209 @@ cp -r skills/kiln ~/.claude/skills/kiln
 
 </details>
 
-## Why these skills exist
+## The skills
 
-### The AI-generated look
+Each entry: what it does in one line, and the itch it scratches
+behind the fold.
 
-Most AI-built interfaces are instantly recognizable: Inter font, purple
-gradient, card-in-card layouts, magnetic cursor effects. They converge on the
-same defaults because agents reach for training-data reflexes.
+**[kiln](skills/kiln/SKILL.md)** — precision UX design instrument:
+perceptual principles → composable patterns → six material kits,
+with anti-AI-slop detection. Generates and audits.
 
-**kiln** fixes this by separating permanent perceptual rules (human vision
-doesn't change) from temporal taste (what's saturated right now). It ships six
-material kits with distinct personalities, anti-pattern detection, and a
-quarterly-versioned zeitgeist file that tracks which aesthetics have been
-strip-mined by AI generators.
+<details><summary>the AI-generated look</summary>
 
-### The animation that doesn't feel right
+Most AI-built interfaces are instantly recognizable: Inter font,
+purple gradient, card-in-card layouts, magnetic cursor effects.
+They converge on the same defaults because agents reach for
+training-data reflexes. kiln separates permanent perceptual rules
+(human vision doesn't change) from temporal taste (what's
+saturated right now), ships six material kits with distinct
+personalities, and versions a zeitgeist file tracking which
+aesthetics have been strip-mined by AI generators.
 
-Agents add animation the way they add comments: everywhere, uniformly,
-without judgment. `transition: all`, scale(0) entrances, ease-in on
-exits, motion on keyboard actions that fire a hundred times a day.
+</details>
 
-**animate-it** is the implementation protocol: gate (should this animate
-at all?), classify the motion type, specify easing/duration/tool, then
-code against the rules that separate "has animation" from "feels right."
-Kiln decides what should move and why; animate-it makes it move
-correctly.
+**[animate-it](skills/animate-it/SKILL.md)** — animation
+implementation protocol: gate → classify → specify → code → check.
+Custom easing, duration tables, tool selection, review rubric.
 
-### The wall of markdown
+<details><summary>the animation that doesn't feel right</summary>
 
-Agents produce 300-line markdown plans nobody reads. Comparisons get
-stacked instead of side-by-side, timelines become bullet lists, and
-anything interactive gets described instead of built. The fix isn't
-"always output HTML" -- generated HTML has its own failure modes:
-slop styling, lost git diffs, dead-end editors.
+Agents add animation the way they add comments: everywhere,
+uniformly, without judgment. `transition: all`, scale(0)
+entrances, ease-in on exits, motion on keyboard actions that fire
+a hundred times a day. animate-it codes against the rules that
+separate "has animation" from "feels right" — kiln decides what
+should move and why; animate-it makes it move correctly.
 
-**htmlize** is the artifact protocol: gate (does this deliverable beat
-markdown?), shape (which artifact pattern), build (self-contained
-single file, calm typography, safe DOM), check (the review rubric).
-Exports go through the clipboard; markdown stays the source of truth.
+</details>
 
-### The first answer that sticks
+**[htmlize](skills/htmlize/SKILL.md)** — HTML artifact protocol:
+gate → shape → build → check. Self-contained files, calm
+typography, build-time diagram pipeline, clipboard exports.
 
-Claude picks the first reasonable approach and builds on it. For most
-problems, that's fine. For decisions that are expensive to reverse --
-architecture, naming, strategy -- it produces competent, forgettable
-output. The real cost isn't a bad answer. It's never seeing the better
-one because you stopped looking.
+<details><summary>the wall of markdown</summary>
 
-**parallax** forces a structured pause: frame the decision, generate 3-5
-approaches that differ on fundamental assumptions (not implementation
-details), surface the traps, commit to one with explicit trade-offs.
-Inspired by [ADHD](https://github.com/UditAkhourii/adhd)'s divergent
-ideation work, but designed as a lightweight protocol -- not an
-orchestration harness. One context, zero infrastructure.
+Agents produce 300-line markdown plans nobody reads. Comparisons
+get stacked instead of side-by-side, timelines become bullet
+lists, anything interactive gets described instead of built. The
+fix isn't "always output HTML" — generated HTML has its own
+failure modes: slop styling, lost git diffs, dead-end editors.
+htmlize gates first (does this beat markdown?), and markdown
+stays the source of truth.
 
-### The workflow you can't repeat
+</details>
 
-You spend 40 minutes getting an agent to do something perfectly -- tool
-sequences, corrections, domain knowledge discovered along the way. Next week
-you need the same workflow and start from scratch.
+**[parallax](skills/parallax/SKILL.md)** — multi-perspective
+decision protocol: frame → spread → commit. Genuinely different
+alternatives, trap detection as a first-class operation.
 
-**skillize** crystallizes a session into a reusable skill. It surveys the
-conversation, classifies corrections by durability (permanent rule vs one-off
-fix), extracts the repeatable pattern, and drafts a SKILL.md. The workflow is
-preserved, not just the output.
+<details><summary>the first answer that sticks</summary>
 
-### The goal that drifts
+Claude picks the first reasonable approach and builds on it. For
+decisions that are expensive to reverse — architecture, naming,
+strategy — that produces competent, forgettable output. The real
+cost isn't a bad answer; it's never seeing the better one because
+you stopped looking. parallax forces 3-5 approaches that differ
+on fundamental assumptions, surfaces the traps, then commits with
+explicit trade-offs. One context, zero infrastructure.
 
-You set `/goal` and the agent runs for an hour -- then you discover it
-built the wrong thing. The goal was vague, the scope was open-ended, the
-verification was "looks good." The agent filled every ambiguity gap with
-its own assumptions.
+</details>
 
-**goldengoal** shapes fuzzy intent into a falsifiable engineering
-contract before execution starts. Five contract gates -- outcome,
-evidence, boundary, stop rules, pause conditions -- plus a pre-mortem
-for complex work. Two modes: compose (walk through problem, outcome,
-scope, context, contract) and sharpen (engine-test an existing draft).
-Calibrates protocol weight to task complexity -- a typo fix gets three
-lines, an architecture change gets full scope and stop rules. Produces
-two artifacts: a goal brief (full spec) and a `/goal` condition (the
-evaluator's exit gate).
+**[goldengoal](skills/goldengoal/SKILL.md)** — goal engineering:
+compose intent into a contract, or sharpen a draft against five
+gates. Produces a goal brief + `/goal` condition.
 
-### The book you read but never use
+<details><summary>the goal that drifts</summary>
+
+You set `/goal` and the agent runs for an hour — then you discover
+it built the wrong thing. The goal was vague, the scope open, the
+verification "looks good"; the agent filled every ambiguity gap
+with its own assumptions. goldengoal shapes fuzzy intent into a
+falsifiable contract before execution: outcome, evidence,
+boundary, stop rules, pause conditions — weighted to task
+complexity, so a typo fix gets three lines, not a ceremony.
+
+</details>
+
+**[skillize](skills/skillize/SKILL.md)** — session-to-skill
+crystallizer: survey the conversation, classify corrections by
+durability, extract the repeatable pattern, draft the SKILL.md.
+
+<details><summary>the workflow you can't repeat</summary>
+
+You spend 40 minutes getting an agent to do something perfectly —
+tool sequences, corrections, domain knowledge discovered along the
+way. Next week you need the same workflow and start from scratch.
+skillize preserves the workflow, not just the output.
+
+</details>
+
+**[distill](skills/distill/SKILL.md)** — source-to-skills
+distiller: gate → survey → hunt → earn → shape → prove. Four
+verification gates, strict yield, digest as first-class residue.
+
+<details><summary>the book you read but never use</summary>
 
 You read a methodology book, highlight half of it, and a year
-later make the same decisions you would have made anyway. The
-knowledge stayed at "I've read it" -- it never activates when an
-agent is actually working.
-
-**distill** turns a knowledge source -- book, transcript, course,
-doc set -- into the few skills it actually earns. Strict yield:
-every candidate unit must pass four gates (grounded in 2+
-independent passages, predictive beyond the source's own examples,
-non-obvious to a smart generalist, and behavioral -- it changes
-what an agent does, checkably). Most sources earn 0-3 skills; the
+later make the same decisions you would have made anyway. distill
+turns a source into the few skills it actually earns — every unit
+must be grounded in 2+ passages, predictive beyond the examples,
+non-obvious, and behavioral. Most sources earn 0-3 skills; the
 rest becomes an honest digest that says what didn't make it and
-why. Verification gates adapted from
-[cangjie-skill](https://github.com/kangarooking/cangjie-skill)
-(MIT), rebuilt around this collection's gate-first doctrine.
+why.
 
-### The great work nobody sees
+</details>
+
+**[skillbun](skills/skillbun/SKILL.md)** — skill bundler: resolve
+inter-skill dependencies, rename to avoid collisions, package into
+one `.skill` archive.
+
+<details><summary>skills that can't travel alone</summary>
+
+You build a skill that depends on another skill's scripts. You
+share the `.skill` file and the recipient's pipeline silently
+breaks because the dependency isn't there. skillbun ships the
+whole graph as one file.
+
+</details>
+
+**[burnish](skills/burnish/SKILL.md)** — repo packaging and
+promotion: audit → renovate → instrument → tell, in trust-damage
+order. README anatomy, honest numbers, agent surfaces, automation
+tripwires.
+
+<details><summary>the great work nobody sees</summary>
 
 You shipped something real. But the README opens with install
 instructions, the last release trails the commits by a year, and a
 scheduled job has been green-but-dead for weeks. Visitors spend 30
-seconds, impute neglect, and leave. The work was never the problem
--- the surfaces were.
+seconds, impute neglect, and leave — the work was never the
+problem. burnish works the surfaces until they read what is
+actually true, and its law never inverts: work → proof →
+packaging → telling. This README is its output.
 
-**impute** packages real work so its quality is legible: audit the
-repo's surfaces in trust-damage order, renovate the README around
-proof (numbers scoped, reproduce commands shipped), instrument
-automations so green means alive, then -- only then -- tell people,
-leading with the reader's problem. Named for the third principle of
-the 1977 Apple Marketing Philosophy: people judge the work by its
-cover, so make the cover true. Distilled from a full-repo study of
-[headroom](https://github.com/headroomlabs-ai/headroom)'s public
-packaging (Apache-2.0) plus one first-party incident of a pipeline
-that lied green for three weeks.
+</details>
 
-### Skills that can't travel alone
+## Proof
 
-You build a skill that depends on another skill's scripts. You share the
-`.skill` file and the recipient's eval pipeline silently breaks because the
-dependency isn't there.
+Claims about craft should be checkable:
 
-**skillbun** resolves inter-skill dependencies, renames to avoid collisions
-with independently installed copies, and packages everything into a single
-`.skill` archive. One file, one install.
+| Claim | Check |
+|---|---|
+| Nine skills, each a self-contained folder | `ls skills/` |
+| Every body ≤ 500 lines, every description ≤ 1024 chars | `./scripts/validate.sh` |
+| Every skill registered and listed — no orphans | `./scripts/validate.sh` |
+| Zero runtime dependencies: markdown, three shell scripts | `ls scripts/` |
 
-## Skills
+`validate.sh` is the reproduce command; it exits non-zero on any
+violation, so CI and skeptics get the same verdict.
 
-- **[kiln](skills/kiln/SKILL.md)** -- Precision UX design instrument.
-  Layered architecture: perceptual principles -> composable patterns ->
-  parameterized material palettes. Six curated kits. Anti-AI-slop detection.
-  Generates and audits interfaces.
-- **[animate-it](skills/animate-it/SKILL.md)** -- Animation implementation
-  protocol. Gate -> classify -> specify -> code -> check. Custom easing
-  curves, duration tables, tool selection, and a review rubric for
-  animation code that feels wrong.
-- **[htmlize](skills/htmlize/SKILL.md)** -- HTML artifact protocol.
-  Gate -> shape -> build -> check. Turns agent deliverables into
-  self-contained HTML artifacts when they beat markdown -- and says no
-  when they don't. Starter templates, a build-time diagram pipeline
-  (graphviz / d2 / mermaid), clipboard exports, markdown as source of
-  truth.
-- **[parallax](skills/parallax/SKILL.md)** -- Multi-perspective decision
-  protocol. Frame -> spread -> commit. Forces genuinely different alternatives
-  before choosing. Trap detection as a first-class operation.
-- **[goldengoal](skills/goldengoal/SKILL.md)** -- Goal engineering
-  protocol. Compose (intent -> contract) or sharpen (engine-test an
-  existing draft). Five contract gates, pre-mortem, iteration policy.
-  Produces goal brief + /goal condition.
-- **[skillize](skills/skillize/SKILL.md)** -- Session-to-skill crystallizer.
-  Extracts repeatable workflows from agent sessions, classifies corrections,
-  drafts SKILL.md with references. Optional eval pipeline.
-- **[distill](skills/distill/SKILL.md)** -- Source-to-skills
-  distiller. Gate -> survey -> hunt -> earn -> shape -> prove.
-  Four verification gates, strict yield, digest as first-class
-  residue. Books, transcripts, courses, doc sets.
-- **[impute](skills/impute/SKILL.md)** -- Repo packaging and promotion
-  protocol. Audit -> renovate -> instrument -> tell, in trust-damage
-  order. README anatomy, honest numbers, agent-legible surfaces,
-  automation tripwires, groundskeeper sweeps.
-- **[skillbun](skills/skillbun/SKILL.md)** -- Skill bundler. Resolves
-  dependencies, renames to avoid collisions, packages into `.skill` archives.
+## When to use · when to skip
 
-## Repo structure
+Use this collection if you want protocols with taste built in —
+gates that size the task, refusals where the defaults are slop,
+and completion criteria an agent can actually check.
 
-```
-.
-├── .claude-plugin/           # plugin manifest for skills.sh
-│   └── plugin.json
-├── scripts/                  # repo utilities
-│   ├── link-skills.sh        #   symlink all skills to ~/.claude/skills/
-│   └── list-skills.sh        #   list all SKILL.md files
-├── skills/                   # flat -- each skill is self-contained
-│   ├── kiln/
-│   ├── animate-it/
-│   ├── htmlize/
-│   ├── parallax/
-│   ├── skillize/
-│   ├── skillbun/
-│   ├── goldengoal/
-│   ├── distill/
-│   └── impute/
-└── template/                 # starter SKILL.md
-    └── SKILL.md
-```
+Skip it if:
+
+- you want breadth-first coverage —
+  [anthropics/skills](https://github.com/anthropics/skills) is the
+  official library and covers far more ground
+- you want an orchestration framework — these are single-context
+  protocols; there is deliberately no infrastructure here
+- you disagree with the opinions — they are load-bearing, not
+  decoration; fork and re-season rather than fight the gates
+
+## Kin
+
+These skills stand on named shoulders:
+
+| Collection | What we took, with thanks |
+|---|---|
+| [mattpocock/skills](https://github.com/mattpocock/skills) | writing-great-skills gave the doctrine its vocabulary — predictability, leading words, the no-op test (MIT) |
+| [kangarooking/cangjie-skill](https://github.com/kangarooking/cangjie-skill) | the book-to-skills pipeline distill adapts to strict yield (MIT) |
+| [UditAkhourii/adhd](https://github.com/UditAkhourii/adhd) | parallel-frame divergence, traded by parallax for a zero-infra single context |
+| [headroomlabs-ai/headroom](https://github.com/headroomlabs-ai/headroom) | the repo-packaging study behind burnish (Apache-2.0) |
 
 ## Creating a new skill
 
 1. Copy `template/SKILL.md` into a new directory under `skills/`
 2. Name the directory to match the `name:` field in frontmatter
-3. Write the instructions (keep SKILL.md under 500 lines)
-4. Add the skill to `.claude-plugin/plugin.json`
-5. Test: `./scripts/link-skills.sh` then invoke in your agent
+3. Write the instructions to the [doctrine](CLAUDE.md) — gate
+   first, one trigger per branch, under 500 lines
+4. Register it in `.claude-plugin/plugin.json` and list it here
+5. `./scripts/validate.sh`, then `./scripts/link-skills.sh` and
+   invoke it in your agent
 
-Or: use `/skillize` after completing a workflow to auto-extract one.
+Or: use `/skillize` after completing a workflow to auto-extract
+one.
 
 ## Contributing
 
-1. Fork the repo
-2. Create your skill under `skills/`
-3. Validate: `name` matches directory, description under 1024 chars
-4. Add to `.claude-plugin/plugin.json`
-5. Open a PR
+Fork, build your skill under `skills/`, run
+`./scripts/validate.sh`, open a PR. Opinions welcome; slop
+refused.
 
 ## License
 

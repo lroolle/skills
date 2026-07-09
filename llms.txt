@@ -1,0 +1,31 @@
+# lroolle/skills
+
+> Nine opinionated agent skills for Claude Code, Codex, and any
+> agent that reads SKILL.md folders: UX design, animation, HTML
+> artifacts, decision spread, goal contracts, and the craft of
+> making skills themselves. Every protocol opens with a gate that
+> can say no. Apache-2.0. Each skill is one self-contained folder
+> under skills/<name>/.
+
+Install: `npx skills@latest add lroolle/skills` -- or copy any
+skills/<name>/ folder into ~/.claude/skills/ (or your agent's
+skill root). No build step, no runtime dependencies.
+
+## Skills
+
+One line per skill: what fires it. Fetch the raw SKILL.md to use it.
+
+- [kiln](https://raw.githubusercontent.com/lroolle/skills/main/skills/kiln/SKILL.md): design or restyle a frontend surface; audit an interface; rescue generic AI-looking output
+- [animate-it](https://raw.githubusercontent.com/lroolle/skills/main/skills/animate-it/SKILL.md): implement or fix web animation -- easing, duration, springs, tool choice; review animation code
+- [htmlize](https://raw.githubusercontent.com/lroolle/skills/main/skills/htmlize/SKILL.md): deliverables that beat markdown -- plans, reports, comparisons, decks, diagrams as one self-contained HTML file
+- [parallax](https://raw.githubusercontent.com/lroolle/skills/main/skills/parallax/SKILL.md): decisions where the obvious answer being wrong is expensive -- spread genuinely different approaches, surface traps, commit
+- [goldengoal](https://raw.githubusercontent.com/lroolle/skills/main/skills/goldengoal/SKILL.md): turn fuzzy intent into a goal contract for /goal or agentic loops; sharpen a draft goal against five gates
+- [skillize](https://raw.githubusercontent.com/lroolle/skills/main/skills/skillize/SKILL.md): crystallize this session's workflow into a reusable skill
+- [distill](https://raw.githubusercontent.com/lroolle/skills/main/skills/distill/SKILL.md): distill a book, transcript, or doc set into the few skills it actually earns
+- [skillbun](https://raw.githubusercontent.com/lroolle/skills/main/skills/skillbun/SKILL.md): bundle skills plus their dependencies into one .skill archive
+- [burnish](https://raw.githubusercontent.com/lroolle/skills/main/skills/burnish/SKILL.md): audit, renovate, instrument, and promote a repo until real work reads as real in 30 seconds
+
+## Doctrine
+
+- [CLAUDE.md](https://raw.githubusercontent.com/lroolle/skills/main/CLAUDE.md): the craft rules every skill here is built by -- gate-first shape, one-trigger-per-branch descriptions, leading words, routes vs credit
+- [template/SKILL.md](https://raw.githubusercontent.com/lroolle/skills/main/template/SKILL.md): the starter skill matching the doctrine
