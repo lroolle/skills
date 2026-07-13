@@ -8,9 +8,9 @@
 |___/_|\_\_|_|_|___/
 </pre>
 
-**Nine small skills with strong opinions — and gates that say no.**
+**Eleven small skills with strong opinions — and gates that say no.**
 
-design · motion · artifacts · decisions · goals · the craft of skills itself
+design · motion · artifacts · decisions · goals · knowledge · the craft of skills itself
 
 [![skills.sh](https://skills.sh/b/lroolle/skills)](https://skills.sh/lroolle/skills)
 [![license](https://img.shields.io/github/license/lroolle/skills)](LICENSE)
@@ -206,6 +206,24 @@ whole graph as one file.
 
 </details>
 
+**[drop](skills/drop/SKILL.md)** — publish deliverables to a live
+review URL, pull human verdicts and annotations back into the
+loop: gate → publish → feedback → revise, same link across
+revisions.
+
+<details><summary>the artifact nobody could click</summary>
+
+The agent builds a beautiful artifact and then... pastes a file
+path. The reviewer is on their phone, or another machine, or
+asleep in another timezone. drop gives the bundle a live,
+expiring, revocable URL with a review surface — approve /
+request-changes plus element-anchored annotations — and the agent
+reads the feedback back as structured data and republishes
+revision N+1 on the same link. The loop closes instead of dying
+in a DM.
+
+</details>
+
 **[burnish](skills/burnish/SKILL.md)** — repo packaging and
 promotion: audit → renovate → instrument → tell, in trust-damage
 order. README anatomy, honest numbers, agent surfaces, automation
@@ -223,16 +241,52 @@ packaging → telling. This README is its output.
 
 </details>
 
+**[wiki-it](skills/wiki-it/SKILL.md)** — knowledge vault compiler:
+sources → schema → LLM compilation → human review gate → plain
+markdown files, as a conformant OKF bundle. Four verbs (orient,
+ingest, query, lint); review as a ranked queue, not homework.
+
+<details><summary>the 314-page wiki nobody reviewed</summary>
+
+An agent can scaffold hundreds of accurate pages in one run — and
+a real build did, then shipped with zero pages reviewed, because
+review was packaged as "read 300 pages." wiki-it splits trust by
+origin (data / editorial / human), caps unreviewed editorial debt
+with a WIP limit, and generates a gravity-ranked review queue
+where the human verifies flagged claims in seconds per page. Each
+vault carries its own contract–map–memory triad (AGENTS.md,
+index.md, log.md), so the next agent needs no skill installed to
+work it correctly — and any OKF tool reads the bundle as-is.
+
+</details>
+
+**[llms-txt](skills/llms-txt/SKILL.md)** — generate and maintain
+llms.txt: the curated map a site, docs dir, repo, or vault
+publishes so agents orient in one fetch. Stability is the
+contract — byte-identical reruns, minimal-diff refreshes.
+
+<details><summary>a map that lies is worse than no map</summary>
+
+Agents trust llms.txt over the territory it maps, so the failure
+mode isn't a missing map — it's a stale one. llms-txt treats the
+file as a derived artifact: descriptions come from each page's own
+self-description, ordering is fixed so refresh diffs stay minimal,
+and a stdlib checker catches dead links and drift. The gate is
+honest about GEO: evidence that search crawlers fetch this file is
+thin; its real consumers are agents fetching docs on demand.
+
+</details>
+
 ## Proof
 
 Claims about craft should be checkable:
 
 | Claim | Check |
 |---|---|
-| Nine skills, each a self-contained folder | `ls skills/` |
+| Eleven skills, each a self-contained folder | `ls skills/` |
 | Every body ≤ 500 lines, every description ≤ 1024 chars | `./scripts/validate.sh` |
 | Every skill registered and listed — no orphans | `./scripts/validate.sh` |
-| Zero runtime dependencies: markdown, three shell scripts | `ls scripts/` |
+| Zero dependencies to install: markdown, repo shell scripts, stdlib-only Python in wiki-it and llms-txt | `ls scripts/ skills/wiki-it/scripts/ skills/llms-txt/scripts/` |
 
 `validate.sh` is the reproduce command; it exits non-zero on any
 violation, so CI and skeptics get the same verdict.

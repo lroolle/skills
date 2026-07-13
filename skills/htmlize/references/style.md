@@ -85,6 +85,7 @@ body.tool {
 
 h1 { font-size: 1.9rem; line-height: 1.2; letter-spacing: -0.01em; }
 h2 { font-size: 1.3rem; margin-top: 2.2em; }
+h1, h2, h3 { text-wrap: balance; }  /* no widowed last word in headings */
 code, pre { font-family: var(--mono); font-size: 0.92em; }
 pre {
   background: var(--surface);
@@ -99,6 +100,13 @@ th, td {
   vertical-align: top;
   padding: 0.5rem 0.75rem;
   border-bottom: 1px solid var(--rule);
+}
+/* Numeric columns: right-aligned tabular digits so magnitudes
+   line up down the column. Units go in the header, not the cells. */
+td.num, th.num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  font-family: var(--sans);
 }
 
 @media (max-width: 700px) {

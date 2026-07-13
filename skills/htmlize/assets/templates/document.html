@@ -54,6 +54,7 @@
 
   h1 { font-size: 1.9rem; line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 0.3em; }
   h2 { font-size: 1.3rem; margin-top: 2.2em; }
+  h1, h2, h3 { text-wrap: balance; }
   .framing { color: var(--ink-2); margin-top: 0; }
   a { color: var(--accent); }
 
@@ -90,6 +91,13 @@
     border-bottom: 1px solid var(--rule);
   }
   th { font-family: var(--sans); font-size: 0.85em; }
+  /* Numeric columns: right-aligned, digits in fixed-width forms so
+     magnitudes line up. Units live in the header, not the cells. */
+  td.num, th.num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    font-family: var(--sans);
+  }
 
   /* Status is color plus a word, never color alone */
   .ok   { color: var(--ok); }
@@ -104,6 +112,30 @@
   figure.diagram figcaption {
     font-family: var(--sans); font-size: 0.85em; color: var(--ink-2);
   }
+  /* Figures and captioned tables number themselves; cross-reference
+     them by id: <a href="#fig-flow">Figure 1</a>. Tables without a
+     <caption> stay unnumbered. */
+  body { counter-reset: fig tab; }
+  figure.diagram figcaption::before {
+    counter-increment: fig;
+    content: "Figure " counter(fig) ". ";
+    font-weight: 600; color: var(--ink);
+  }
+  table caption {
+    counter-increment: tab;
+    caption-side: top; text-align: left;
+    font-family: var(--sans); font-size: 0.85em; color: var(--ink-2);
+    padding: 0 0 0.4rem;
+  }
+  table caption::before {
+    content: "Table " counter(tab) ". ";
+    font-weight: 600; color: var(--ink);
+  }
+  .colophon {
+    margin-top: 3rem; padding-top: 1rem;
+    border-top: 1px solid var(--rule);
+    font: 0.8rem/1.6 var(--sans); color: var(--ink-2);
+  }
   /* Dark-mode remap for graphviz output -- presentation attributes
      lose to any CSS rule. See references/diagrams.md. */
   .diagram svg [fill="#ffffff"]   { fill: var(--surface); }
@@ -114,6 +146,13 @@
   .diagram svg [stroke="#e6e4de"] { stroke: var(--rule); }
   .diagram svg [fill="#1a6db0"]   { fill: var(--accent); }
   .diagram svg [stroke="#1a6db0"] { stroke: var(--accent); }
+  /* Mermaid hardcodes these regardless of theme variables --
+     arrowhead markers and activation bars go invisible in dark
+     mode without them. */
+  .diagram svg [fill="#eaeaea"]   { fill: var(--rule); }
+  .diagram svg [stroke="#000000"] { stroke: var(--ink-2); }
+  .diagram svg [stroke="#666"],
+  .diagram svg [stroke="#999"]    { stroke: var(--ink-2); }
 
   @media (max-width: 900px) {
     body { max-width: 72ch; margin: 1.5rem auto; }
@@ -186,6 +225,12 @@
 
   </main>
 </div>
+
+<footer class="colophon">
+  SLOT: provenance line -- generated YYYY-MM-DD from
+  <code>repo@commit</code>; data from SLOT (where the numbers came
+  from, so a reader can reproduce them).
+</footer>
 
 <script>
   // Build the TOC from h2 headings.

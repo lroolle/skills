@@ -89,7 +89,8 @@ per PR):
    depth, an honest anti-pitch, depth collapsed until wanted. The
    16 slots with examples: references/readme-anatomy.md. Every
    number obeys references/honest-numbers.md.
-3. Add the agent surface: llms.txt at repo root, tuned topics,
+3. Add the agent surface: llms.txt at repo root (generating and
+   refreshing that file is the llms-txt skill's job), tuned topics,
    outcome-first description. references/agent-surface.md.
 4. Backfill health files from references/health-stack.md — minimal
    viable versions, no corporate boilerplate.

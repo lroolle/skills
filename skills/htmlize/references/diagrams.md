@@ -15,17 +15,20 @@ JS. The renderer is the agent's tool, never the file's dependency.
 
 1. **Author the source** in a diagram language (`.dot`, `.d2`,
    `.mmd`), styled with the baseline palette below.
-2. **Render to SVG** with whatever engine is available --
-   `scripts/render-diagram.sh` finds one, or see the table.
-3. **Clean for inlining**: strip the XML prolog and DOCTYPE;
-   replace fixed `width`/`height` with `max-width: 100%` CSS,
-   keeping the `viewBox`.
-4. **Inline the `<svg>`** into the artifact, wrapped in a
-   `<figure class="diagram">`.
-5. **Keep the source.** Put the `.dot`/`.mmd` text in a
-   collapsed `<details>` under the figure (or an HTML comment).
-   The source is the editable form -- the same reason markdown
-   stays the source of truth for prose.
+2. **Render**: `scripts/render-diagram.sh --figure --caption
+   "what the diagram shows" src.mmd` picks an engine, strips the
+   XML prolog, remaps palette hexes inside embedded `<style>`
+   blocks to `var(--token, #hex)` (themeable when inlined, still
+   correct standalone thanks to the fallback), and writes a
+   ready-to-paste `src.html` fragment: `<figure class="diagram">`
+   with the SVG, a numbered caption, and the escaped source in a
+   collapsed `<details>`.
+3. **Inline the fragment** into the artifact. Keeping the source
+   under the figure is not optional -- it is the editable form,
+   the same reason markdown stays the source of truth for prose.
+
+Without `--figure` the script emits just the cleaned `.svg`;
+wrap and caption it yourself per the steps above.
 
 ## Renderers, in order of preference
 
@@ -89,13 +92,18 @@ rule, so no SVG surgery is needed:
 .diagram svg [stroke="#1a6db0"] { stroke: var(--accent); }
 ```
 
-This works verbatim for `dot` output. Mermaid and `d2` put colors
-in an embedded `<style>` block instead, where attribute selectors
-cannot reach -- for those, either `sed` the known palette hexes to
-`var(--ink)` etc. inside the SVG (deterministic, since the theme
-config chose the hexes), or accept the diagram sitting on a light
-`--surface` panel in dark mode. Never ship a diagram that turns
-illegible when the OS theme flips.
+This covers `dot` output, whose colors are all presentation
+attributes. Mermaid and `d2` put colors in an embedded `<style>`
+block instead, where attribute selectors cannot reach --
+`render-diagram.sh` rewrites those to `var(--token, #hex)` at
+render time, so a script-rendered diagram needs no manual work.
+Mermaid also hardcodes a few colors that ignore both the theme
+config and the rewrite (`stroke="#666"` actor lines,
+`fill="#eaeaea"` activation bars, `stroke="#000000"` arrowheads);
+the template's remap block catches them -- without it, arrowheads
+vanish in dark mode. Never ship a diagram that turns illegible
+when the OS theme flips: check both themes, not just the one
+your OS happens to be in.
 
 ## Taste rules
 

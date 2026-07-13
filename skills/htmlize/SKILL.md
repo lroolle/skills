@@ -90,7 +90,11 @@ Layout guidance for every shape is in
 [patterns.md](references/patterns.md); editors additionally
 follow [export.md](references/export.md). Diagrams past a
 handful of nodes are rendered from a diagram language, not
-hand-drawn -- [diagrams.md](references/diagrams.md).
+hand-drawn -- [diagrams.md](references/diagrams.md). Reports
+where a decision rests on numbers -- benchmarks, experiment
+writeups, project reports -- additionally follow
+[report.md](references/report.md): numbered figures, honest
+axes, units, spread, provenance.
 
 One artifact, one job. A request that spans jobs -- a spec that
 needs design mockups and a sequence diagram -- composes those
@@ -173,6 +177,9 @@ one row per violation found: Before (the offending code), After
 | Hand-drawn SVG diagram past ~8 nodes | Render from `.dot`/`.mmd` source per diagrams.md | Layout is computation; engines route edges, models don't |
 | Diagram illegible when the OS theme flips | Remap palette hexes to CSS variables | Rendered SVGs carry light-palette colors |
 | Lorem ipsum, placeholder rows, or a visible `SLOT:` | Pre-populate from the task data | The user already provided the real data; SLOTs self-flag unfinished work |
+| Numeric column left-aligned, ragged decimals | `td.num` -- right-align, tabular-nums, one precision, units in the header | Magnitude reads down a column; misalignment and mixed precision hide it |
+| Bar chart with a truncated baseline, or unlabeled axes | Zero baseline; axes labeled with quantity and unit | One noticed distortion poisons trust in every other figure |
+| Report figure uncaptioned, or referenced as "below" | Numbered caption stating the takeaway; cross-reference by link | Captions are the one line skimmers read; "below" breaks on reorder |
 | No viewport meta, breaks under 700px | Add meta, collapse to one column | Artifacts get opened on phones |
 | Light-only or screen-only | Dark palette + print styles | Specs get printed; phones run dark mode |
 | Durable record exists only in HTML | Write the markdown source, HTML as view | Git diffs markdown; HTML is a rendering |
@@ -195,6 +202,11 @@ one row per violation found: Before (the offending code), After
   clipboard; the user pastes back. The reasoning, and the
   heavier alternative this trades away, is in
   [export.md](references/export.md).
+- **Publishing for review is drop's job.** When the finished
+  artifact needs another human's eyes on a live URL -- async
+  review, verdict-gated loops -- hand the bundle to the drop
+  skill. Its gate re-checks privacy before anything ships; the
+  Privacy section below still decides what may leave the machine.
 
 ## Accessibility
 
@@ -251,10 +263,12 @@ Review mode:
 | [patterns.md](references/patterns.md) | Building any artifact -- per-shape layout guidance |
 | [style.md](references/style.md) | Writing CSS -- baseline, palette, anti-slop list |
 | [diagrams.md](references/diagrams.md) | The artifact includes a flowchart, architecture map, or sequence diagram |
+| [report.md](references/report.md) | A decision rests on the artifact's numbers -- benchmarks, experiments, project reports |
 | [export.md](references/export.md) | The artifact is interactive or affects durable docs |
 | [prior-art.md](references/prior-art.md) | Understanding the lineage and design choices |
 
 Bundled tooling: [assets/templates/](assets/templates/) holds the
 three starting points; `scripts/render-diagram.sh` renders
-`.dot`/`.d2`/`.mmd` sources to inline-ready SVG with whatever
-engine is installed.
+`.dot`/`.d2`/`.mmd` sources to themed, inline-ready SVG with
+whatever engine is installed -- `--figure --caption "..."` emits
+a paste-ready `<figure>` fragment with the source attached.

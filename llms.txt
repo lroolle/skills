@@ -1,15 +1,16 @@
 # lroolle/skills
 
-> Nine opinionated agent skills for Claude Code, Codex, and any
+> Eleven opinionated agent skills for Claude Code, Codex, and any
 > agent that reads SKILL.md folders: UX design, animation, HTML
-> artifacts, decision spread, goal contracts, and the craft of
-> making skills themselves. Every protocol opens with a gate that
-> can say no. Apache-2.0. Each skill is one self-contained folder
-> under skills/<name>/.
+> artifacts, decision spread, goal contracts, knowledge vaults,
+> llms.txt maps, and the craft of making skills themselves. Every
+> protocol opens with a gate that can say no. Apache-2.0. Each skill
+> is one self-contained folder under skills/<name>/.
 
 Install: `npx skills@latest add lroolle/skills` -- or copy any
 skills/<name>/ folder into ~/.claude/skills/ (or your agent's
-skill root). No build step, no runtime dependencies.
+skill root). No build step, nothing to install -- the wiki-it and
+llms-txt checkers are stdlib-only Python.
 
 ## Skills
 
@@ -24,6 +25,8 @@ One line per skill: what fires it. Fetch the raw SKILL.md to use it.
 - [distill](https://raw.githubusercontent.com/lroolle/skills/main/skills/distill/SKILL.md): distill a book, transcript, or doc set into the few skills it actually earns
 - [skillbun](https://raw.githubusercontent.com/lroolle/skills/main/skills/skillbun/SKILL.md): bundle skills plus their dependencies into one .skill archive
 - [burnish](https://raw.githubusercontent.com/lroolle/skills/main/skills/burnish/SKILL.md): audit, renovate, instrument, and promote a repo until real work reads as real in 30 seconds
+- [wiki-it](https://raw.githubusercontent.com/lroolle/skills/main/skills/wiki-it/SKILL.md): build or operate a knowledge vault -- compile sources into reviewed, self-describing OKF bundles; orient, ingest, query, lint; work the review queue
+- [llms-txt](https://raw.githubusercontent.com/lroolle/skills/main/skills/llms-txt/SKILL.md): generate, refresh, or check llms.txt -- the curated map a site, docs dir, repo, or vault publishes so agents orient in one fetch
 
 ## Doctrine
 

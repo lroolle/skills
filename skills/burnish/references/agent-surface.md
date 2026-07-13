@@ -27,6 +27,9 @@ Structure:
 
 Keep it a hand-curated subset that defers to a live generated
 index when one exists. Stale llms.txt is as bad as stale README.
+Generating, refreshing, and drift-checking the file is the
+llms-txt skill's job -- burnish only audits that it exists and
+isn't stale.
 
 ## GitHub identity fields
 

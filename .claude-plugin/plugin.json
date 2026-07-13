@@ -9,6 +9,9 @@
     "./skills/skillbun",
     "./skills/goldengoal",
     "./skills/distill",
-    "./skills/burnish"
+    "./skills/drop",
+    "./skills/burnish",
+    "./skills/wiki-it",
+    "./skills/llms-txt"
   ]
 }
