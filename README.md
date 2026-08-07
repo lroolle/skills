@@ -8,7 +8,7 @@
 |___/_|\_\_|_|_|___/
 </pre>
 
-**Eleven small skills with strong opinions — and gates that say no.**
+**Small skills with strong opinions — and gates that say no.**
 
 design · motion · artifacts · decisions · goals · knowledge · the craft of skills itself
 
@@ -98,6 +98,26 @@ training-data reflexes. kiln separates permanent perceptual rules
 saturated right now), ships six material kits with distinct
 personalities, and versions a zeitgeist file tracking which
 aesthetics have been strip-mined by AI generators.
+
+</details>
+
+**[taste](skills/taste/SKILL.md)** — design judgment protocol:
+stakes → evidence → behavior → verdict → scar. Judges whether a
+design change earned its keep; decomposes references into
+mechanisms; remembers rejections.
+
+<details><summary>the redesign that photographed well</summary>
+
+The deadliest design failure isn't ugliness — it's costume: a
+prettier surface that made the task harder. HN kills these on
+sight ("the dashboard looks more organized, but that's because it
+lost most of its useful information"). taste is the judgment
+layer kiln doesn't have: it pins what must not break, gathers
+evidence before opinion, checks behavioral invariants that
+haven't moved since 1984, and issues one of three verdicts —
+better, different, or costume. Rejections become scars in a
+project TASTE.md, so taste compounds instead of restarting every
+session. kiln builds; taste judges.
 
 </details>
 
@@ -283,7 +303,7 @@ Claims about craft should be checkable:
 
 | Claim | Check |
 |---|---|
-| Eleven skills, each a self-contained folder | `ls skills/` |
+| Every skill a self-contained folder | `ls skills/` |
 | Every body ≤ 500 lines, every description ≤ 1024 chars | `./scripts/validate.sh` |
 | Every skill registered and listed — no orphans | `./scripts/validate.sh` |
 | Zero dependencies to install: markdown, repo shell scripts, stdlib-only Python in wiki-it and llms-txt | `ls scripts/ skills/wiki-it/scripts/ skills/llms-txt/scripts/` |

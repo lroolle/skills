@@ -1,6 +1,6 @@
 # lroolle/skills
 
-> Eleven opinionated agent skills for Claude Code, Codex, and any
+> Opinionated agent skills for Claude Code, Codex, and any
 > agent that reads SKILL.md folders: UX design, animation, HTML
 > artifacts, decision spread, goal contracts, knowledge vaults,
 > llms.txt maps, and the craft of making skills themselves. Every
@@ -17,6 +17,7 @@ llms-txt checkers are stdlib-only Python.
 One line per skill: what fires it. Fetch the raw SKILL.md to use it.
 
 - [kiln](https://raw.githubusercontent.com/lroolle/skills/main/skills/kiln/SKILL.md): design or restyle a frontend surface; audit an interface; rescue generic AI-looking output
+- [taste](https://raw.githubusercontent.com/lroolle/skills/main/skills/taste/SKILL.md): judge whether a design change is actually better -- verdict on a UI diff or redesign; decompose "make it like X" references into mechanisms and acceptance criteria; record rejections as reusable scars
 - [animate-it](https://raw.githubusercontent.com/lroolle/skills/main/skills/animate-it/SKILL.md): implement or fix web animation -- easing, duration, springs, tool choice; review animation code
 - [htmlize](https://raw.githubusercontent.com/lroolle/skills/main/skills/htmlize/SKILL.md): deliverables that beat markdown -- plans, reports, comparisons, decks, diagrams as one self-contained HTML file
 - [parallax](https://raw.githubusercontent.com/lroolle/skills/main/skills/parallax/SKILL.md): decisions where the obvious answer being wrong is expensive -- spread genuinely different approaches, surface traps, commit

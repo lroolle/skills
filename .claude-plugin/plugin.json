@@ -2,6 +2,7 @@
   "name": "lroolle-skills",
   "skills": [
     "./skills/kiln",
+    "./skills/taste",
     "./skills/animate-it",
     "./skills/htmlize",
     "./skills/parallax",
