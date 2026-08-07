@@ -58,6 +58,7 @@ Then feel one work — say any of these:
 
 | Say | Fires |
 |---|---|
+| "give this repo a design system" | design-system |
 | "audit this repo's README" | burnish |
 | "should this modal animate?" | animate-it |
 | "run /parallax on \<a decision you're stuck on\>" | parallax |
@@ -84,6 +85,27 @@ cp -r skills/kiln ~/.claude/skills/kiln
 
 Each entry: what it does in one line, and the itch it scratches
 behind the fold.
+
+**[design-system](skills/design-system/SKILL.md)** — give a repo a
+design system: classify surfaces → seed a material → install the
+contracts → wire the agents. Then it routes build, judge, and move to
+kiln, taste, and animate-it with the material loaded.
+
+<details><summary>the taste that resets every session</summary>
+
+kiln builds and taste judges, but neither survives a fresh context:
+next session's agent re-invents the tokens, re-picks the font, and
+re-litigates a rejection you settled last week. This installs the
+system into the *repo* instead of the session — `DESIGN.md` as the
+material contract every UI touch reads first, `TASTE.md` as the scar
+memory that keeps each rejection's why, `bans.sh` as the grep-able
+subset a machine can enforce. It also carries the reference catalog
+organized by *function* — where to look for motion, layout, flows,
+components, fonts, icons — because "make it like Linear" is a
+coordinate, not a brief. Design-system-first: if GOV.UK, Polaris, or
+Material already governs your context, it says adopt that and stops.
+
+</details>
 
 **[kiln](skills/kiln/SKILL.md)** — precision UX design instrument:
 perceptual principles → composable patterns → six material kits,

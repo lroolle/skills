@@ -16,6 +16,7 @@ llms-txt checkers are stdlib-only Python.
 
 One line per skill: what fires it. Fetch the raw SKILL.md to use it.
 
+- [design-system](https://raw.githubusercontent.com/lroolle/skills/main/skills/design-system/SKILL.md): give a repo a design system -- install the material contract (DESIGN.md tokens, TASTE.md scars, runnable bans), then build/judge/move against it; choose fonts, icons, and references by function
 - [kiln](https://raw.githubusercontent.com/lroolle/skills/main/skills/kiln/SKILL.md): design or restyle a frontend surface; audit an interface; rescue generic AI-looking output
 - [taste](https://raw.githubusercontent.com/lroolle/skills/main/skills/taste/SKILL.md): judge whether a design change is actually better -- verdict on a UI diff or redesign; decompose "make it like X" references into mechanisms and acceptance criteria; record rejections as reusable scars
 - [animate-it](https://raw.githubusercontent.com/lroolle/skills/main/skills/animate-it/SKILL.md): implement or fix web animation -- easing, duration, springs, tool choice; review animation code

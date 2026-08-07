@@ -1,0 +1,60 @@
+# DESIGN.md — the material
+
+Read this before touching anything under the app's UI (`src/app/`,
+`src/blocks/`, `src/components/`, or your framework's equivalents).
+TASTE.md holds prior rulings; this file holds the material. The one-line
+test for any UI change: **a change that makes the surface prettier and
+the task harder must fail.**
+
+<!-- Replace every {PLACEHOLDER}. This file is a contract: if it lies
+about what the code does, it is worse than no file. Rewrite it in the
+same commit that changes the material. -->
+
+## Surface classification
+
+Decide which surface you are on before styling anything:
+
+- **Brand surface** ({LIST: landing, marketing, launch}): design IS the
+  product. Expressiveness is load-bearing; spend the identity budget here.
+- **Product surface** ({LIST: dashboard, settings, admin, auth}): design
+  serves the task. Density is a feature. Expressiveness competes with it.
+
+Most taste failures are brand moves applied to product surfaces.
+
+## The material — kit: {KIT NAME}
+
+{One line on the intended feel and territory.}
+
+| Dimension | Value | Law |
+|---|---|---|
+| Color seed | {hue + name}, chroma {range} | Both themes derive from it. Dark mode dims the seed — never chroma 0, never pure black/white. |
+| Accent | {token + oklch value} | One accent. Semantic states (destructive, charts) come from tokens only — never raw palette classes. |
+| Type | {display/body face} + {mono face} | {pairing rationale}. CJK: {face} harmonizes; a CJK-primary product picks and preloads the CJK face first. |
+| Radius | `--radius: {value}`, one corner language | Every rounded corner speaks the same family. A second corner language is a defect. |
+| Surfaces | {borders / shadows} | Structure from {1px rules + tone steps / elevation}. Shadow only where elevation means something. |
+| Density | {value} | Never delete information to make a layout breathe — summarize above the data, never instead of it. |
+| Motion | {duration + easing} | No pulse, no countdown, no scroll theater. Deadlines are dated facts. `prefers-reduced-motion` always respected. |
+| Icons | {one set} at {weight} | One family, one weight, chosen deliberately (browse via iconify.design, commit to one). |
+
+## Display-device ration
+
+Per page: **one masthead device + one section-label device**, chosen once
+and reused. Uppercase-tracked microlabels, sub-12px sizes (max two),
+letter-spacing variants — each is a device; devices repeated everywhere
+flatten emphasis into texture.
+
+## Hard bans (run assets/bans.sh)
+
+These encode scars (see TASTE.md), not preferences: raw palette classes,
+urgency animations, hardcoded hex in app code, saturated display fonts.
+Your component library (shadcn/ui etc.) is exempt — it is token-driven and
+generator-managed.
+
+## Behavioral floor
+
+Visual work never trades away: visible state (landmarks stay put), labels
+with icons for multi-state controls, verbs on buttons (never bare
+Yes/No/OK), disabled-not-hidden commands, honest feedback in the user's
+vocabulary, reversibility over confirmation. When a redesign is proposed,
+run the `taste` verdict protocol: protected functions first, count what
+changes, judge behavior before surfaces.

@@ -1,6 +1,7 @@
 {
   "name": "lroolle-skills",
   "skills": [
+    "./skills/design-system",
     "./skills/kiln",
     "./skills/taste",
     "./skills/animate-it",

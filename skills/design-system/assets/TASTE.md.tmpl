@@ -1,0 +1,71 @@
+# TASTE.md — prior rulings
+
+Scars from real rejections. Each carries its why; a scar without a why is
+a ban, and bans fossilize into style police. Read this before any design
+verdict; a design decision that re-litigates a scar without new evidence
+is a defect. Delete a scar the moment its expiry condition arrives.
+
+<!-- The entries below are STRUCTURAL scars — they hold for any project,
+which is why they ship seeded. Add project-specific scars beneath them as
+real rejections happen. Format: date · what was rejected · why · reuse
+rule · expiry. -->
+
+## seed: costume — prettier surface, harder task
+
+Why: the deadliest design failure is not ugliness; it is a change that
+improves the screenshot and degrades the job. Aggregate cards that hide
+the data table, a redesign that drops the information density the user
+actually scans.
+Reuse: on analyst/operator surfaces, summarize above the data, never
+instead of it; summaries show worst-case, not averages. Any change that
+makes the task harder fails regardless of how it photographs.
+Expires: never (structural).
+
+## seed: chassis leakage — template adoption without a route-and-mount audit
+
+Why: adopted templates ship demo routes, global widget mounts, and
+orphaned keyframes that read as AI-generated within seconds (a live
+pricing page with unresolved i18n keys on an editorial site).
+Reuse: adoption ends with a route-and-mount audit — every demo route,
+global mount, and orphaned keyframe earns its place or is deleted.
+Expires: never (structural).
+
+## seed: utility-palette breakout — semantic states from raw classes
+
+Why: one page carrying token-red, a hardcoded `red-600` callout, and
+`amber-*` stars is three color systems with zero shared meaning.
+Reuse: semantic states derive from tokens only; assets/bans.sh enforces it.
+Expires: never (structural).
+
+## seed: mixed corner languages
+
+Why: 0-radius rules, `rounded-full` CTAs, and `rounded-lg` alerts on one
+screen mean radius was never decided, only inherited.
+Reuse: choose the radius token before the first component; every corner
+speaks it.
+Expires: never (structural).
+
+## seed: the cheap-urgency kit
+
+Why: pulsing dots and live countdowns spend trust to buy attention.
+Reuse: deadlines render as dated facts. No pulse, no tick, no exclaim.
+Expires: if a product's primary task becomes time-critical AND its brief
+says so.
+
+## seed: achromatic dark mode on a hued brand
+
+Why: dropping the seed hue to chroma-0 gray with pure-white cards at night
+is a different, colder product — plus halation.
+Reuse: both themes derive neutrals from the same hue seed; never chroma 0,
+never #fff/#000.
+Expires: never (structural).
+
+## seed: Latin-first typography on a CJK-primary product
+
+Why: hosting the identity on the Latin face while the CJK face is an
+unpreloaded fallback gives the primary audience the fallback experience.
+Reuse: CJK-primary products pick and preload the CJK display face first;
+Latin harmonizes with it.
+Expires: when the product commissions a bilingual type identity.
+
+<!-- Project scars start here. -->
