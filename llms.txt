@@ -24,6 +24,7 @@ One line per skill: what fires it. Fetch the raw SKILL.md to use it.
 - [skillize](https://raw.githubusercontent.com/lroolle/skills/main/skills/skillize/SKILL.md): crystallize this session's workflow into a reusable skill
 - [distill](https://raw.githubusercontent.com/lroolle/skills/main/skills/distill/SKILL.md): distill a book, transcript, or doc set into the few skills it actually earns
 - [skillbun](https://raw.githubusercontent.com/lroolle/skills/main/skills/skillbun/SKILL.md): bundle skills plus their dependencies into one .skill archive
+- [drop](https://raw.githubusercontent.com/lroolle/skills/main/skills/drop/SKILL.md): publish a deliverable to a live review URL and pull human verdicts and annotations back into the loop
 - [burnish](https://raw.githubusercontent.com/lroolle/skills/main/skills/burnish/SKILL.md): audit, renovate, instrument, and promote a repo until real work reads as real in 30 seconds
 - [wiki-it](https://raw.githubusercontent.com/lroolle/skills/main/skills/wiki-it/SKILL.md): build or operate a knowledge vault -- compile sources into reviewed, self-describing OKF bundles; orient, ingest, query, lint; work the review queue
 - [llms-txt](https://raw.githubusercontent.com/lroolle/skills/main/skills/llms-txt/SKILL.md): generate, refresh, or check llms.txt -- the curated map a site, docs dir, repo, or vault publishes so agents orient in one fetch
