@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="SLOT: The design drivers, alternatives, selected architecture, and tradeoffs.">
+<title>Decisions — SLOT: System title</title>
+<link rel="stylesheet" href="assets/site.css">
+<script src="assets/diagram-viewer.js" defer></script>
+<script src="assets/site.js" defer></script>
+</head>
+<body data-page="decisions.html">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="site-mark" href="index.html" aria-label="SLOT: System title, overview">
+      <span class="site-name">SLOT: System title</span>
+      <span class="site-purpose">SLOT: The decision or understanding this briefing enables.</span>
+    </a>
+    <nav class="primary-nav" aria-label="Primary">
+      <a href="index.html">Overview</a>
+      <a href="architecture.html">Architecture</a>
+      <a href="mechanics.html">Mechanics</a>
+      <a href="decisions.html" aria-current="page">Decisions</a>
+      <a href="risks.html">Risks</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-shell">
+  <main id="main">
+    <header class="page-header">
+      <p class="eyebrow">Design rationale · Why this design?</p>
+      <h1>SLOT: The choice and the constraint that decided it</h1>
+      <p class="lede"><strong>SLOT: State the selected approach and decisive reason.</strong>
+        SLOT: Name the strongest alternative and why its advantage did not outweigh its cost.</p>
+    </header>
+
+    <section aria-labelledby="drivers">
+      <h2 id="drivers">Decision drivers</h2>
+      <p>SLOT: Rank the constraints. If every criterion is equally important, no decision has been made.</p>
+      <ol>
+        <li><strong>SLOT: Hard constraint.</strong> SLOT: What becomes invalid if this is missed.</li>
+        <li><strong>SLOT: Dominant optimization.</strong> SLOT: What the design should improve.</li>
+        <li><strong>SLOT: Accepted secondary concern.</strong> SLOT: Why it can be traded.</li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="options">
+      <h2 id="options">The genuine alternatives</h2>
+      <p>SLOT: Describe approaches that differ in architecture or operating assumption, not cosmetic variants.</p>
+      <table>
+        <caption>SLOT: The selected option wins on the decisive drivers while accepting a named cost.</caption>
+        <thead>
+          <tr><th>Option</th><th>Core model</th><th>Wins when</th><th>Breaks when</th><th>Verdict</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>SLOT: Selected</strong></td><td>SLOT</td><td>SLOT</td><td>SLOT</td><td><span class="status ok">Selected</span></td></tr>
+          <tr><td><strong>SLOT: Alternative B</strong></td><td>SLOT</td><td>SLOT</td><td>SLOT</td><td><span class="status warn">Rejected</span></td></tr>
+          <tr><td><strong>SLOT: Alternative C</strong></td><td>SLOT</td><td>SLOT</td><td>SLOT</td><td><span class="status warn">Rejected</span></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section aria-labelledby="selection">
+      <h2 id="selection">Why the selected design wins</h2>
+      <div class="decision-statement">
+        <p class="section-label">Decision</p>
+        <p><strong>SLOT: We will do X.</strong> SLOT: Because Y dominates under boundary Z.
+          This accepts SLOT and avoids SLOT.</p>
+      </div>
+      <p>SLOT: Connect the drivers to concrete architecture. Do not restate the option table.</p>
+    </section>
+
+    <section aria-labelledby="rejected">
+      <h2 id="rejected">Rejected options, without straw men</h2>
+      <details open>
+        <summary>SLOT: Strongest rejected option</summary>
+        <p><strong>What it does better:</strong> SLOT.</p>
+        <p><strong>Why it still lost:</strong> SLOT: Name the boundary or cost, not a vague preference.</p>
+        <p><strong>Revisit if:</strong> SLOT: State the condition that would reverse the decision.</p>
+      </details>
+      <details>
+        <summary>SLOT: Second rejected option</summary>
+        <p><strong>What it does better:</strong> SLOT.</p>
+        <p><strong>Why it still lost:</strong> SLOT.</p>
+      </details>
+    </section>
+
+    <section aria-labelledby="tradeoffs">
+      <h2 id="tradeoffs">Tradeoffs deliberately accepted</h2>
+      <p>SLOT: Name the debt or limitation created by the choice and who will feel it.</p>
+      <div class="risk-statement">
+        <p class="section-label">Accepted cost</p>
+        <p><strong>SLOT: Concrete cost.</strong> SLOT: Why it is bounded, observable, and preferable to the alternative cost.</p>
+      </div>
+    </section>
+
+    <nav class="pager" aria-label="Continue reading">
+      <a href="mechanics.html"><span>Previous · inspect behavior</span>← Mechanics</a>
+      <a href="risks.html"><span>Next · challenge the design</span>Risks and verification →</a>
+    </nav>
+  </main>
+
+  <aside class="page-toc" aria-label="On this page">
+    <p class="page-toc-label">On this page</p>
+    <nav data-page-toc></nav>
+  </aside>
+</div>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <span>SLOT: Generated YYYY-MM-DD from repo@commit or source snapshot.</span>
+    <a href="sources/brief.md">Reasoning source</a>
+  </div>
+</footer>
+</body>
+</html>

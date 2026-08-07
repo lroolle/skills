@@ -27,4 +27,22 @@ for dir in skills/*/; do
   printf '%-12s %7s %7s %8s %8s  %s\n' "$name" "$lines" "$desc_len" "$in_plugin" "$in_readme" "$verdict"
 done
 
+# The multi-page baseline is allowed to contain SLOT markers, but its
+# manifest, navigation, links, IDs, landmarks, and local assets must
+# already satisfy the same checker generated briefings use.
+python3 skills/htmlize/scripts/check-site.py --allow-slots \
+  skills/htmlize/assets/templates/site || fail=1
+
+# Single-page artifacts inline the same viewer that briefing sites load as
+# a shared asset. Normalize the document template's two-space script
+# indentation, then prove the behavior has not drifted between surfaces.
+if ! cmp -s \
+  <(awk '/DIAGRAM_VIEWER_START/{on=1;next}/DIAGRAM_VIEWER_END/{on=0}on' \
+      skills/htmlize/assets/templates/site/assets/diagram-viewer.js) \
+  <(awk '/DIAGRAM_VIEWER_START/{on=1;next}/DIAGRAM_VIEWER_END/{on=0}on' \
+      skills/htmlize/assets/templates/document.html | sed 's/^  //'); then
+  echo "htmlize: document diagram viewer drifted from site asset" >&2
+  fail=1
+fi
+
 exit "$fail"

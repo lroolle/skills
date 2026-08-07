@@ -137,19 +137,21 @@ should move and why; animate-it makes it move correctly.
 
 </details>
 
-**[htmlize](skills/htmlize/SKILL.md)** — HTML artifact protocol:
-gate → shape → build → check. Self-contained files, calm
-typography, build-time diagram pipeline, clipboard exports.
+**[htmlize](skills/htmlize/SKILL.md)** — technical briefing compiler:
+gate → frame → map → build → check. Produces either one focused
+artifact or a navigable multi-page site, with build-time diagrams,
+source bundles, integrity checks, and restrained interaction.
 
 <details><summary>the wall of markdown</summary>
 
-Agents produce 300-line markdown plans nobody reads. Comparisons
-get stacked instead of side-by-side, timelines become bullet
-lists, anything interactive gets described instead of built. The
-fix isn't "always output HTML" — generated HTML has its own
-failure modes: slop styling, lost git diffs, dead-end editors.
-htmlize gates first (does this beat markdown?), and markdown
-stays the source of truth.
+Agents produce 300-line markdown plans nobody reads. Worse, they
+compress architecture, mechanics, decisions, and risks into one
+scroll and call navigation a table of contents. htmlize treats the
+reader's question as the unit of design: one question earns one
+page; several independently useful questions earn a static briefing
+site with real links and shared local assets. The gate still says no
+when markdown is the honest shape, and markdown remains the editable
+reasoning source.
 
 </details>
 
@@ -347,7 +349,7 @@ Claims about craft should be checkable:
 | Every skill a self-contained folder | `ls skills/` |
 | Every body ≤ 500 lines, every description ≤ 1024 chars | `./scripts/validate.sh` |
 | Every skill registered and listed — no orphans | `./scripts/validate.sh` |
-| Zero dependencies to install: markdown, repo shell scripts, stdlib-only Python in wiki-it and llms-txt | `ls scripts/ skills/wiki-it/scripts/ skills/llms-txt/scripts/` |
+| Zero dependencies to install: markdown, repo shell scripts, stdlib-only Python checkers in htmlize, wiki-it, and llms-txt | `ls scripts/ skills/htmlize/scripts/ skills/wiki-it/scripts/ skills/llms-txt/scripts/` |
 
 `validate.sh` is the reproduce command; it exits non-zero on any
 violation, so CI and skeptics get the same verdict.

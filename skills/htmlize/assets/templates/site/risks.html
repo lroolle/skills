@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="SLOT: Failure modes, edge cases, implementation traps, mitigations, and verification limits.">
+<title>Risks — SLOT: System title</title>
+<link rel="stylesheet" href="assets/site.css">
+<script src="assets/diagram-viewer.js" defer></script>
+<script src="assets/site.js" defer></script>
+</head>
+<body data-page="risks.html">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="site-mark" href="index.html" aria-label="SLOT: System title, overview">
+      <span class="site-name">SLOT: System title</span>
+      <span class="site-purpose">SLOT: The decision or understanding this briefing enables.</span>
+    </a>
+    <nav class="primary-nav" aria-label="Primary">
+      <a href="index.html">Overview</a>
+      <a href="architecture.html">Architecture</a>
+      <a href="mechanics.html">Mechanics</a>
+      <a href="decisions.html">Decisions</a>
+      <a href="risks.html" aria-current="page">Risks</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-shell">
+  <main id="main">
+    <header class="page-header">
+      <p class="eyebrow">Failure model · Where can it fail?</p>
+      <h1>SLOT: The limits that matter in operation</h1>
+      <p class="lede"><strong>SLOT: State the largest accepted risk and why it remains acceptable.</strong>
+        SLOT: Distinguish what is mitigated, detected, transferred, and genuinely unknown.</p>
+    </header>
+
+    <section aria-labelledby="failure-modes">
+      <h2 id="failure-modes">Failure modes by boundary</h2>
+      <p>SLOT: Organize failures by violated assumption or boundary, not by a generic severity list.</p>
+      <table>
+        <caption>SLOT: The highest-impact failure is bounded by a named detection and response.</caption>
+        <thead>
+          <tr><th>Boundary</th><th>Failure</th><th>Effect</th><th>Detection</th><th>Response</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>SLOT</td><td>SLOT</td><td>SLOT</td><td><code>SLOT</code></td><td>SLOT</td></tr>
+          <tr><td>SLOT</td><td>SLOT</td><td>SLOT</td><td><code>SLOT</code></td><td>SLOT</td></tr>
+          <tr><td>SLOT</td><td>SLOT</td><td>SLOT</td><td><code>SLOT</code></td><td>SLOT</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section aria-labelledby="edge-cases">
+      <h2 id="edge-cases">Difficult edge cases</h2>
+      <details open>
+        <summary>SLOT: Ordering, concurrency, or partial completion</summary>
+        <p><strong>Trap:</strong> SLOT: Describe the intuitive implementation that fails.</p>
+        <p><strong>Design response:</strong> SLOT: Invariant, serialization point, idempotency key, or compensation.</p>
+        <p><strong>Residual risk:</strong> SLOT.</p>
+      </details>
+      <details>
+        <summary>SLOT: Compatibility, migration, or stale state</summary>
+        <p><strong>Trap:</strong> SLOT.</p>
+        <p><strong>Design response:</strong> SLOT.</p>
+        <p><strong>Residual risk:</strong> SLOT.</p>
+      </details>
+      <details>
+        <summary>SLOT: Security or trust-boundary failure</summary>
+        <p><strong>Trap:</strong> SLOT.</p>
+        <p><strong>Design response:</strong> SLOT.</p>
+        <p><strong>Residual risk:</strong> SLOT.</p>
+      </details>
+    </section>
+
+    <section aria-labelledby="verification">
+      <h2 id="verification">Verification strategy</h2>
+      <p>SLOT: Show how each architectural claim becomes evidence at the appropriate layer.</p>
+      <table>
+        <caption>SLOT: Verification covers invariants, integrations, and operational recovery separately.</caption>
+        <thead>
+          <tr><th>Claim</th><th>Evidence</th><th>Layer</th><th>Stop condition</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>SLOT: Invariant</td><td>SLOT: Property/unit test</td><td>Component</td><td>SLOT</td></tr>
+          <tr><td>SLOT: Interaction</td><td>SLOT: Integration/contract test</td><td>Boundary</td><td>SLOT</td></tr>
+          <tr><td>SLOT: Recovery</td><td>SLOT: Fault injection or rehearsal</td><td>System</td><td>SLOT</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section aria-labelledby="unknowns">
+      <h2 id="unknowns">Known limits and open questions</h2>
+      <p>SLOT: Separate incomplete evidence from accepted design limits. Do not convert uncertainty into reassuring prose.</p>
+      <div class="risk-statement">
+        <p class="section-label">Largest unknown</p>
+        <p><strong>SLOT: What is not yet known.</strong> SLOT: How it will be measured,
+          who owns the answer, and what decision changes if the result crosses a threshold.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="conclusion">
+      <h2 id="conclusion">Final assessment</h2>
+      <p><strong>SLOT: State whether the design is ready, conditionally ready, or blocked.</strong>
+        SLOT: Name the evidence behind that judgment and the remaining human decision.</p>
+    </section>
+
+    <nav class="pager" aria-label="Continue reading">
+      <a href="decisions.html"><span>Previous · understand the choice</span>← Decisions</a>
+      <a href="index.html"><span>Return · recover the whole</span>Overview →</a>
+    </nav>
+  </main>
+
+  <aside class="page-toc" aria-label="On this page">
+    <p class="page-toc-label">On this page</p>
+    <nav data-page-toc></nav>
+  </aside>
+</div>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <span>SLOT: Generated YYYY-MM-DD from repo@commit or source snapshot.</span>
+    <a href="sources/brief.md">Reasoning source</a>
+  </div>
+</footer>
+</body>
+</html>

@@ -11,6 +11,12 @@ at build time, on the agent's machine. The artifact receives a
 plain inline `<svg>` -- selectable text, themeable, zero runtime
 JS. The renderer is the agent's tool, never the file's dependency.
 
+Viewing is a separate layer. The document and site templates may
+progressively enhance that finished SVG with zoom, pan, and fullscreen;
+the renderer never emits viewer controls or mutates the diagram for a
+particular viewport. Geometry belongs to build time. Inspection belongs
+to the reading surface.
+
 ## The pipeline
 
 1. **Author the source** in a diagram language (`.dot`, `.d2`,
@@ -29,6 +35,41 @@ JS. The renderer is the agent's tool, never the file's dependency.
 
 Without `--figure` the script emits just the cleaned `.svg`;
 wrap and caption it yourself per the steps above.
+
+## Inspection viewer
+
+Use the viewer when a fitted diagram makes labels or relationships hard
+to inspect. A simple diagram that is already readable gains nothing from
+controls; remove the enhancement by omitting the `diagram` class.
+
+The templates enhance each direct `figure.diagram > svg` independently:
+
+- 50%-500% scale in stable 25% steps, with minus, plus, range, percentage,
+  Fit, and Full/Exit controls;
+- scrollable pan at enlarged scales while keeping SVG text selectable;
+- center-preserving zoom, plus Ctrl/Command-wheel zoom inside the
+  focused or hovered viewport;
+- `+`, `-`, `0`, `F`, and Escape keyboard behavior;
+- one fullscreen figure at a time, body-scroll lock, focus containment,
+  and focus return to the Full trigger;
+- Fit and no controls in print;
+- no generated IDs, cloned SVG, storage, external code, or variable
+  `innerHTML`.
+
+The no-JavaScript contract is the original inline SVG at `max-width:
+100%`. Enhancement wraps it in a viewport but does not rewrite it. This
+preserves diagram sources, dark-mode palette remapping, selectable text,
+and compatibility with several figures on one page.
+
+Fullscreen must not change the document beneath it. Keep a placeholder
+with the figure's original height while it is fixed to the viewport;
+otherwise removing a large figure from flow can clamp the page scroll and
+return the reader to the wrong place on exit.
+
+When zoom changes, preserve the content coordinate at the viewport
+center, not the raw scroll offset. Raw offsets drift toward the top-left
+as the scrollable area grows. Fit is the deliberate exception: return to
+100% and reset both axes so the control has one predictable meaning.
 
 ## Renderers, in order of preference
 

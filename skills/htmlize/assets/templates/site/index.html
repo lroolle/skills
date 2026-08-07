@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="SLOT: One-sentence description of the system briefing.">
+<title>Overview — SLOT: System title</title>
+<link rel="stylesheet" href="assets/site.css">
+<script src="assets/diagram-viewer.js" defer></script>
+<script src="assets/site.js" defer></script>
+</head>
+<body data-page="index.html">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="site-mark" href="index.html" aria-label="SLOT: System title, overview">
+      <span class="site-name">SLOT: System title</span>
+      <span class="site-purpose">SLOT: The decision or understanding this briefing enables.</span>
+    </a>
+    <nav class="primary-nav" aria-label="Primary">
+      <a href="index.html" aria-current="page">Overview</a>
+      <a href="architecture.html">Architecture</a>
+      <a href="mechanics.html">Mechanics</a>
+      <a href="decisions.html">Decisions</a>
+      <a href="risks.html">Risks</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-shell">
+  <main id="main">
+    <header class="page-header">
+      <p class="eyebrow">Orientation · What was built and why?</p>
+      <h1>SLOT: Name the system, not the document</h1>
+      <p class="lede"><strong>SLOT: State the selected design or central conclusion in one sentence.</strong>
+        SLOT: Add the minimum context needed to understand why that conclusion matters.</p>
+    </header>
+
+    <section aria-labelledby="problem">
+      <h2 id="problem">The problem at system scale</h2>
+      <p>SLOT: Describe the pressure, failure, or opportunity that caused the design work.
+        Name who experiences it and what the current system cannot do.</p>
+      <div class="thesis">
+        <strong>SLOT: Core reasoning.</strong> SLOT: Explain the decisive relationship
+        between the problem constraints and the resulting architecture.
+      </div>
+      <div class="scope-grid">
+        <div>
+          <h3>Inside the boundary</h3>
+          <p>SLOT: Components, users, data, and time horizon this briefing explains.</p>
+        </div>
+        <div>
+          <h3>Outside the boundary</h3>
+          <p>SLOT: Adjacent systems and questions intentionally left for another decision.</p>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="system-at-a-glance">
+      <h2 id="system-at-a-glance">The system at a glance</h2>
+      <p>SLOT: Give the reader the whole before naming individual implementation details.</p>
+      <figure class="diagram">
+        <svg viewBox="0 0 760 260" role="img" aria-labelledby="overview-map-title">
+          <title id="overview-map-title">SLOT: Accessible title for the architecture overview</title>
+          <rect x="24" y="82" width="170" height="92" rx="8" fill="#ffffff" stroke="#e6e4de"/>
+          <rect x="295" y="42" width="170" height="92" rx="8" fill="#ffffff" stroke="#1a6db0" stroke-width="2"/>
+          <rect x="566" y="82" width="170" height="92" rx="8" fill="#ffffff" stroke="#e6e4de"/>
+          <path d="M194 128H278" fill="none" stroke="#5c5c66" stroke-width="2"/>
+          <path d="M465 88H516V128H549" fill="none" stroke="#5c5c66" stroke-width="2"/>
+          <path d="M549 128l-10-6v12z" fill="#5c5c66"/>
+          <path d="M278 128l-10-6v12z" fill="#5c5c66"/>
+          <text x="109" y="124" text-anchor="middle" fill="#1d1d20" font-family="system-ui" font-size="15">SLOT: Input / actor</text>
+          <text x="380" y="82" text-anchor="middle" fill="#1d1d20" font-family="system-ui" font-size="15">SLOT: Core system</text>
+          <text x="380" y="105" text-anchor="middle" fill="#5c5c66" font-family="system-ui" font-size="12">SLOT: invariant</text>
+          <text x="651" y="124" text-anchor="middle" fill="#1d1d20" font-family="system-ui" font-size="15">SLOT: Result</text>
+        </svg>
+        <figcaption>SLOT: State the architectural takeaway, not merely the diagram topic.</figcaption>
+      </figure>
+      <details>
+        <summary>Diagram source and boundary notes</summary>
+        <p>SLOT: Replace the sample SVG with rendered diagram output and include its editable
+          source under <code>sources/diagrams/</code>.</p>
+      </details>
+    </section>
+
+    <section aria-labelledby="reading-paths">
+      <h2 id="reading-paths">Choose the path that matches your job</h2>
+      <p>The pages form one explanation, but they do not require one reading order.</p>
+      <div class="reading-paths">
+        <div class="reading-path">
+          <strong>Review the design</strong>
+          <p>Start with <a href="decisions.html">why this architecture won</a>, then inspect
+            <a href="risks.html">the accepted risks and verification plan</a>.</p>
+        </div>
+        <div class="reading-path">
+          <strong>Implement the system</strong>
+          <p>Establish <a href="architecture.html">component boundaries</a>, then follow
+            <a href="mechanics.html">the runtime flow and invariants</a>.</p>
+        </div>
+        <div class="reading-path">
+          <strong>SLOT: Third reader</strong>
+          <p>SLOT: Link the shortest path for an operator, security reviewer, or executive.</p>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="result">
+      <h2 id="result">The resulting design</h2>
+      <p>SLOT: Describe what now exists, the principal capability it creates, and the
+        most important limitation that remains. Do not repeat the page title.</p>
+      <div class="decision-statement">
+        <p class="section-label">Final design</p>
+        <p><strong>SLOT: Concise architecture statement.</strong> SLOT: State the tradeoff
+          accepted in exchange for its main advantage.</p>
+      </div>
+    </section>
+
+    <nav class="pager" aria-label="Continue reading">
+      <span></span>
+      <a href="architecture.html"><span>Next · establish the whole</span>Architecture and boundaries →</a>
+    </nav>
+  </main>
+
+  <aside class="page-toc" aria-label="On this page">
+    <p class="page-toc-label">On this page</p>
+    <nav data-page-toc></nav>
+  </aside>
+</div>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <span>SLOT: Generated YYYY-MM-DD from repo@commit or source snapshot.</span>
+    <a href="sources/brief.md">Reasoning source</a>
+  </div>
+</footer>
+</body>
+</html>

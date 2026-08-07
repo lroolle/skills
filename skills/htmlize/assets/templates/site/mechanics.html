@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="SLOT: The runtime flow, state lifecycle, invariants, and implementation seams.">
+<title>Mechanics — SLOT: System title</title>
+<link rel="stylesheet" href="assets/site.css">
+<script src="assets/diagram-viewer.js" defer></script>
+<script src="assets/site.js" defer></script>
+</head>
+<body data-page="mechanics.html">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="site-mark" href="index.html" aria-label="SLOT: System title, overview">
+      <span class="site-name">SLOT: System title</span>
+      <span class="site-purpose">SLOT: The decision or understanding this briefing enables.</span>
+    </a>
+    <nav class="primary-nav" aria-label="Primary">
+      <a href="index.html">Overview</a>
+      <a href="architecture.html">Architecture</a>
+      <a href="mechanics.html" aria-current="page">Mechanics</a>
+      <a href="decisions.html">Decisions</a>
+      <a href="risks.html">Risks</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-shell">
+  <main id="main">
+    <header class="page-header">
+      <p class="eyebrow">Runtime model · How does the system behave?</p>
+      <h1>SLOT: The mechanism from input to result</h1>
+      <p class="lede"><strong>SLOT: Summarize the critical flow and its controlling invariant.</strong>
+        SLOT: State where complexity is intentionally concentrated and where it is excluded.</p>
+    </header>
+
+    <section aria-labelledby="critical-flow">
+      <h2 id="critical-flow">The critical flow</h2>
+      <p>SLOT: Name the event that starts the flow and the condition that ends it.</p>
+      <ol class="flow">
+        <li><strong>SLOT: Receive and normalize.</strong> SLOT: Inputs, validation, and ownership transfer.</li>
+        <li><strong>SLOT: Decide and record.</strong> SLOT: Policy, state transition, and atomic boundary.</li>
+        <li><strong>SLOT: Execute and observe.</strong> SLOT: Side effect, acknowledgement, and telemetry.</li>
+        <li><strong>SLOT: Recover or complete.</strong> SLOT: Retry, compensation, or terminal state.</li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="state-model">
+      <h2 id="state-model">State and data lifecycle</h2>
+      <p>SLOT: Explain what is authoritative, derived, ephemeral, and externally owned.</p>
+      <table>
+        <caption>SLOT: State transitions preserve the named invariant.</caption>
+        <thead>
+          <tr><th>State</th><th>Entered when</th><th>May leave by</th><th>Durability</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>SLOT_PENDING</code></td><td>SLOT</td><td>SLOT</td><td>SLOT</td></tr>
+          <tr><td><code>SLOT_ACTIVE</code></td><td>SLOT</td><td>SLOT</td><td>SLOT</td></tr>
+          <tr><td><code>SLOT_TERMINAL</code></td><td>SLOT</td><td>Never / SLOT</td><td>SLOT</td></tr>
+        </tbody>
+      </table>
+      <div class="invariant">
+        <p class="section-label">State invariant</p>
+        <p><strong>SLOT: State the impossible condition.</strong> SLOT: Explain the write,
+          lock, version, or ownership rule that prevents it.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="implementation-seams">
+      <h2 id="implementation-seams">Implementation seams</h2>
+      <p>SLOT: Identify the few functions, modules, or messages where the architecture becomes code.</p>
+      <pre><code>SLOT: Key implementation excerpt
+// Explain the invariant or tradeoff embodied here; omit unrelated code.</code></pre>
+      <details>
+        <summary>SLOT: Why this seam is difficult</summary>
+        <p>SLOT: Race, ordering, idempotency, partial failure, performance, or compatibility detail.</p>
+      </details>
+    </section>
+
+    <section aria-labelledby="operation">
+      <h2 id="operation">Operation and recovery</h2>
+      <p>SLOT: Explain how the system is observed and what an operator does when the happy path stops.</p>
+      <table>
+        <caption>SLOT: Each symptom maps to a discriminating signal and bounded action.</caption>
+        <thead>
+          <tr><th>Symptom</th><th>Signal</th><th>Likely boundary</th><th>Action</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>SLOT</td><td><code>SLOT</code></td><td>SLOT</td><td>SLOT</td></tr>
+          <tr><td>SLOT</td><td><code>SLOT</code></td><td>SLOT</td><td>SLOT</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <nav class="pager" aria-label="Continue reading">
+      <a href="architecture.html"><span>Previous · establish boundaries</span>← Architecture</a>
+      <a href="decisions.html"><span>Next · examine the choice</span>Design decisions →</a>
+    </nav>
+  </main>
+
+  <aside class="page-toc" aria-label="On this page">
+    <p class="page-toc-label">On this page</p>
+    <nav data-page-toc></nav>
+  </aside>
+</div>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <span>SLOT: Generated YYYY-MM-DD from repo@commit or source snapshot.</span>
+    <a href="sources/brief.md">Reasoning source</a>
+  </div>
+</footer>
+</body>
+</html>

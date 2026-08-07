@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="SLOT: The system boundary, components, relationships, and interfaces.">
+<title>Architecture — SLOT: System title</title>
+<link rel="stylesheet" href="assets/site.css">
+<script src="assets/diagram-viewer.js" defer></script>
+<script src="assets/site.js" defer></script>
+</head>
+<body data-page="architecture.html">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="site-mark" href="index.html" aria-label="SLOT: System title, overview">
+      <span class="site-name">SLOT: System title</span>
+      <span class="site-purpose">SLOT: The decision or understanding this briefing enables.</span>
+    </a>
+    <nav class="primary-nav" aria-label="Primary">
+      <a href="index.html">Overview</a>
+      <a href="architecture.html" aria-current="page">Architecture</a>
+      <a href="mechanics.html">Mechanics</a>
+      <a href="decisions.html">Decisions</a>
+      <a href="risks.html">Risks</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-shell">
+  <main id="main">
+    <header class="page-header">
+      <p class="eyebrow">System model · How do the parts relate?</p>
+      <h1>SLOT: Architecture as one intelligible whole</h1>
+      <p class="lede"><strong>SLOT: Answer the architecture question in one sentence.</strong>
+        SLOT: Name the organizing principle that makes the component boundaries coherent.</p>
+    </header>
+
+    <section aria-labelledby="boundary">
+      <h2 id="boundary">Context and boundary</h2>
+      <p>SLOT: Place the system between its upstream actors and downstream effects.
+        Identify trust, network, process, or ownership boundaries explicitly.</p>
+      <div class="scope-grid">
+        <div>
+          <h3>SLOT: Upstream boundary</h3>
+          <p>SLOT: Inputs, guarantees, and what the system must distrust or normalize.</p>
+        </div>
+        <div>
+          <h3>SLOT: Downstream boundary</h3>
+          <p>SLOT: Outputs, consumers, and the contract the system must preserve.</p>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="components">
+      <h2 id="components">Components and responsibilities</h2>
+      <p>SLOT: Explain the decomposition principle before listing parts.</p>
+      <table>
+        <caption>SLOT: The responsibility split prevents a specific class of coupling.</caption>
+        <thead>
+          <tr><th>Component</th><th>Owns</th><th>Must not own</th><th>Interface</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>SLOT: Component A</strong></td><td>SLOT</td><td>SLOT</td><td><code>SLOT</code></td></tr>
+          <tr><td><strong>SLOT: Component B</strong></td><td>SLOT</td><td>SLOT</td><td><code>SLOT</code></td></tr>
+          <tr><td><strong>SLOT: Component C</strong></td><td>SLOT</td><td>SLOT</td><td><code>SLOT</code></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section aria-labelledby="relationships">
+      <h2 id="relationships">Relationships and direction of control</h2>
+      <p>SLOT: Explain which arrows represent calls, data, authority, or ownership.</p>
+      <figure class="diagram">
+        <svg viewBox="0 0 760 330" role="img" aria-labelledby="architecture-map-title">
+          <title id="architecture-map-title">SLOT: Accessible title for the component relationship diagram</title>
+          <rect x="45" y="54" width="190" height="74" rx="7" fill="#ffffff" stroke="#e6e4de"/>
+          <rect x="285" y="54" width="190" height="74" rx="7" fill="#ffffff" stroke="#1a6db0" stroke-width="2"/>
+          <rect x="525" y="54" width="190" height="74" rx="7" fill="#ffffff" stroke="#e6e4de"/>
+          <rect x="285" y="220" width="190" height="74" rx="7" fill="#faf9f7" stroke="#e6e4de"/>
+          <path d="M235 91H268M475 91H508M380 128V203" fill="none" stroke="#5c5c66" stroke-width="2"/>
+          <path d="M268 91l-10-6v12zM508 91l-10-6v12zM380 203l-6-10h12z" fill="#5c5c66"/>
+          <text x="140" y="96" text-anchor="middle" fill="#1d1d20" font-family="system-ui" font-size="14">SLOT: Boundary A</text>
+          <text x="380" y="96" text-anchor="middle" fill="#1d1d20" font-family="system-ui" font-size="14">SLOT: Core owner</text>
+          <text x="620" y="96" text-anchor="middle" fill="#1d1d20" font-family="system-ui" font-size="14">SLOT: Boundary B</text>
+          <text x="380" y="262" text-anchor="middle" fill="#1d1d20" font-family="system-ui" font-size="14">SLOT: Durable state</text>
+        </svg>
+        <figcaption>SLOT: State the consequence of the relationship structure.</figcaption>
+      </figure>
+    </section>
+
+    <section aria-labelledby="contracts">
+      <h2 id="contracts">Interfaces and invariants</h2>
+      <p>SLOT: Move from boxes to the contracts that make the boxes meaningful.</p>
+      <div class="invariant">
+        <p class="section-label">Invariant</p>
+        <p><strong>SLOT: State what must remain true across every transition.</strong>
+          SLOT: Name the component that enforces it and the evidence that verifies it.</p>
+      </div>
+      <details>
+        <summary>SLOT: Exact interface or schema</summary>
+        <pre><code>SLOT: Minimal code, message, schema, or API contract.
+// Annotate the property the reader should inspect.</code></pre>
+      </details>
+    </section>
+
+    <nav class="pager" aria-label="Continue reading">
+      <a href="index.html"><span>Previous · establish purpose</span>← Overview</a>
+      <a href="mechanics.html"><span>Next · follow behavior</span>Runtime mechanics →</a>
+    </nav>
+  </main>
+
+  <aside class="page-toc" aria-label="On this page">
+    <p class="page-toc-label">On this page</p>
+    <nav data-page-toc></nav>
+  </aside>
+</div>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <span>SLOT: Generated YYYY-MM-DD from repo@commit or source snapshot.</span>
+    <a href="sources/brief.md">Reasoning source</a>
+  </div>
+</footer>
+</body>
+</html>

@@ -50,6 +50,39 @@ Mistakes:
   TOC and jump links or it reads worse than the markdown it
   replaced.
 
+## Technical briefing site
+
+For system designs, architecture explainers, implementation reports,
+and RFCs where several reader questions must stay coherent without
+sharing one scroll. Load [sites.md](sites.md); it owns the full page map
+and bundle contract.
+
+Layout: a stable primary nav across real HTML pages, one question per
+page, a short answer in each page's first viewport, local contents for
+long pages, and ordinary cross-links that say why to follow them. The
+default questions are Overview, Architecture, Mechanics, Decisions, and
+Risks. They are prompts, not required pages: merge thin answers and add
+Evidence, Reference, or Migration only when independently useful.
+
+Load-bearing: the overview's system-at-a-glance model plus named reading
+paths. A reviewer and an implementer should traverse the same material
+in different orders without either being forced through the other's
+detail.
+
+Mistakes:
+
+- Splitting by length or numbered chapters. A page boundary represents a
+  distinct question and shareable context.
+- Repeating the introduction on every page. The stable shell preserves
+  context; each lead should answer that page's question immediately.
+- A home page that is only a menu. Overview carries the thesis, boundary,
+  architecture at a glance, and result.
+- Client-side routing or runtime content fetch. Real pages and links are
+  the simplest interface that survives local files, print, sharing, and
+  JavaScript failure.
+- Seven pages with two paragraphs each. The site gate is not permission
+  to fragment one argument.
+
 ## Code review board
 
 For PR review, PR explainers, "explain this code path,"

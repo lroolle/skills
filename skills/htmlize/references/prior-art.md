@@ -44,10 +44,12 @@ what we changed.
    does is say no" -- because the failure mode of this whole
    philosophy is HTML-by-default applied to things markdown does
    better, and the HN thread is full of exactly that complaint.
-2. **One skill, four steps.** f-labs ships 16 skills; that
+2. **One skill, five steps.** f-labs ships 16 skills; that
    granularity helps triggering but costs coherence and
-   maintenance. We compress the territory into one protocol with
-   shape references, the same architecture as our animate-it.
+   maintenance. We compress the territory into Gate, Frame, Map,
+   Build, and Check with shape references. Frame makes the thesis
+   explicit; Map prevents markup from deciding the information
+   architecture by accident.
 3. **Review mode.** No prior skill reviews existing artifacts.
    Generated HTML that "looks off" is now common enough that the
    Check table doubles as a standalone review rubric.
@@ -66,3 +68,9 @@ what we changed.
    real PII leaks from casually published artifacts. No prior
    skill mentions this. Artifacts are data files, and the skill
    says so.
+7. **Real pages for system explanations.** A single file remains the
+   right portability unit for one question. Several independently useful
+   questions become a static briefing bundle: shared local assets, real
+   links, and a checked manifest. We rejected a client-side router because
+   local-file viewing, deep links, print, and no-JS reading are product
+   requirements, not implementation details.

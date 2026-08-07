@@ -1,0 +1,32 @@
+{
+  "title": "SLOT: System title",
+  "purpose": "SLOT: The decision or understanding this briefing enables.",
+  "source": "sources/brief.md",
+  "pages": [
+    {
+      "file": "index.html",
+      "label": "Overview",
+      "question": "What was built and why?"
+    },
+    {
+      "file": "architecture.html",
+      "label": "Architecture",
+      "question": "How do the parts relate?"
+    },
+    {
+      "file": "mechanics.html",
+      "label": "Mechanics",
+      "question": "How does the system behave?"
+    },
+    {
+      "file": "decisions.html",
+      "label": "Decisions",
+      "question": "Why this design?"
+    },
+    {
+      "file": "risks.html",
+      "label": "Risks",
+      "question": "Where can it fail?"
+    }
+  ]
+}
