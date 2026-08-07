@@ -30,6 +30,7 @@ One line per skill: what fires it. Fetch the raw SKILL.md to use it.
 - [wiki-it](https://raw.githubusercontent.com/lroolle/skills/main/skills/wiki-it/SKILL.md): build or operate a knowledge vault -- compile sources into reviewed, self-describing OKF bundles; orient, ingest, query, lint; work the review queue
 - [llms-txt](https://raw.githubusercontent.com/lroolle/skills/main/skills/llms-txt/SKILL.md): generate, refresh, or check llms.txt -- the curated map a site, docs dir, repo, or vault publishes so agents orient in one fetch
 - [compost](https://raw.githubusercontent.com/lroolle/skills/main/skills/compost/SKILL.md): doc hygiene by blind trial -- a subagent reading only the code tests each doc's claims; restatement dies, survivors become ADRs, glossary, or roads, savings feed code legibility
+- [handoff](https://raw.githubusercontent.com/lroolle/skills/main/skills/handoff/SKILL.md): pass the baton between sessions -- compress live working state into HANDOFF.md when leaving; verify against the repo, then resume in motion when arriving
 
 ## Doctrine
 

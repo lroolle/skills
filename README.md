@@ -62,6 +62,7 @@ Then feel one work — say any of these:
 | "should this modal animate?" | animate-it |
 | "run /parallax on \<a decision you're stuck on\>" | parallax |
 | "turn this session into a skill" | skillize |
+| "wrap up, I'm done for today" | handoff |
 
 <details><summary>Manual install</summary>
 
@@ -314,6 +315,26 @@ and what it contradicts was misinformation wearing
 documentation's authority. Deleting is half the move; the other
 half reinvests the savings in names, types, and errors that
 can't drift, because they are the code.
+
+</details>
+
+**[handoff](skills/handoff/SKILL.md)** — session baton pass:
+evidence → packet → baton prompt when leaving; read → verify →
+resume in motion when arriving. One live HANDOFF.md, overwritten
+each pass.
+
+<details><summary>the session that dies with its context</summary>
+
+The work was mid-flight — dirty tree, two failing tests, a dead
+end you finally understood — and then the context filled, or the
+day ended, or the rate limit hit. The next session starts cold and
+re-explores everything, including the dead end. handoff compresses
+the live state into one packet a fresh agent can act on in
+minutes: an executable first step, the paths that matter, what not
+to retry, and a Verify block — because the packet is a claim, the
+repo is the truth, and the next agent checks before it trusts.
+What changed is git's job; why it changed is the devlog's; handoff
+carries only the baton.
 
 </details>
 
