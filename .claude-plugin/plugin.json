@@ -13,6 +13,7 @@
     "./skills/drop",
     "./skills/burnish",
     "./skills/wiki-it",
-    "./skills/llms-txt"
+    "./skills/llms-txt",
+    "./skills/compost"
   ]
 }

@@ -297,6 +297,26 @@ thin; its real consumers are agents fetching docs on demand.
 
 </details>
 
+**[compost](skills/compost/SKILL.md)** — doc hygiene by blind
+trial: tag → rediscovery test → compost → reinvest. Docs that
+restate the code die, survivors get promoted to ADRs, glossary,
+or roads, and the savings feed the code itself.
+
+<details><summary>the doc that lies to your agent</summary>
+
+Every doc that explains code starts drifting the moment the code
+moves. Your agent loads both, can't tell which is true, and the
+stale essay wins just often enough to hurt. compost makes
+restatement falsifiable: a blind subagent reads only the code and
+answers each doc's claims — what it rediscovers was a cache, what
+it can't reach becomes an ADR, glossary term, or navigation road,
+and what it contradicts was misinformation wearing
+documentation's authority. Deleting is half the move; the other
+half reinvests the savings in names, types, and errors that
+can't drift, because they are the code.
+
+</details>
+
 ## Proof
 
 Claims about craft should be checkable:

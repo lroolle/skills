@@ -29,6 +29,7 @@ One line per skill: what fires it. Fetch the raw SKILL.md to use it.
 - [burnish](https://raw.githubusercontent.com/lroolle/skills/main/skills/burnish/SKILL.md): audit, renovate, instrument, and promote a repo until real work reads as real in 30 seconds
 - [wiki-it](https://raw.githubusercontent.com/lroolle/skills/main/skills/wiki-it/SKILL.md): build or operate a knowledge vault -- compile sources into reviewed, self-describing OKF bundles; orient, ingest, query, lint; work the review queue
 - [llms-txt](https://raw.githubusercontent.com/lroolle/skills/main/skills/llms-txt/SKILL.md): generate, refresh, or check llms.txt -- the curated map a site, docs dir, repo, or vault publishes so agents orient in one fetch
+- [compost](https://raw.githubusercontent.com/lroolle/skills/main/skills/compost/SKILL.md): doc hygiene by blind trial -- a subagent reading only the code tests each doc's claims; restatement dies, survivors become ADRs, glossary, or roads, savings feed code legibility
 
 ## Doctrine
 
